@@ -1,7 +1,7 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 
-export default function CustomImageAvatar({size, imgPath}) {
+export default function CustomImageAvatar({borderRadius, size, imgPath}) {
 
   const containerStyle = {
     width: `${size}px`,
@@ -9,14 +9,17 @@ export default function CustomImageAvatar({size, imgPath}) {
     justifyContent: "center",
     marginTop: '10px',
     padding: "10px",
-    borderRadius: "10px",
   };
 
   return (
     <div className="avatar-container" style={containerStyle}>
       <Avatar
         alt="no image"
-        sx= {{ width: size, height: size }}
+        sx={{ 
+          width: size, 
+          height: size,
+          borderRadius: borderRadius  // Adjusting the borderRadius based on format prop
+        }}
         src={imgPath}/>
     </div>
   );

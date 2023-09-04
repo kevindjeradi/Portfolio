@@ -27,7 +27,7 @@ function HomePage() {
 
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm={7} className="grid-left">
-            <Paper sx={{backgroundColor:"transparent"}} elevation={0} className="avatar-container">
+            <Paper sx={{backgroundColor:""}} elevation={0} className="avatar-container">
               <SwipeableTextMobileStepper></SwipeableTextMobileStepper>
             </Paper>
           </Grid>
@@ -37,7 +37,7 @@ function HomePage() {
             <Slide direction="left" in={true} mountOnEnter unmountOnExit timeout={{ enter: 600, exit: 600 }}>
               <ListItem className="vertical-menu-item">
                 <Link href="./Projects" underline="none" className='menu-text'>
-                  Mes projets</Link>
+                  Mes Projets</Link>
               </ListItem>
             </Slide>
             <Slide direction="left" in={true} mountOnEnter unmountOnExit timeout={{ enter: 600, exit: 600 }}>

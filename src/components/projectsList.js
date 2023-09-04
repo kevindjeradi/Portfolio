@@ -53,15 +53,16 @@ export default function ProjectsList() {
   };
 
   const buttonStyle = {
-    backgroundColor: '#282c34',
-    color: 'white',
+    backgroundColor: 'white',
+    color: '#A2A0A0',
     margin: '0 20px 10px 20px'
   };
 
   const activeButtonStyle = {
     ...buttonStyle,
-    backgroundColor: 'white', // Change this to the desired color
-    color: '#282c34',
+    backgroundColor: '#97B5C7', // Change this to the desired color
+    color: '#ffffff',
+    fontWeight: 'bold'
   };
 
   const filteredItems = itemData.filter((item) => {
@@ -100,9 +101,8 @@ export default function ProjectsList() {
 
       <ImageList cols={numCols} gap={36}>
         {filteredItems.map((item) => (
-          <ImageListItem key={uuidv4()} style={{paddingLeft : '30px', paddingRight : '30px'}}>
+          <ImageListItem key={uuidv4()} style={{borderRadius:'10px', padding: '30px', backgroundColor: '#EEF4F8', color: '#648AA0'}}>
             <img
-
               src={`${item.img}?w=350&fit=crop&auto=format`}
               srcSet={`${item.img}?w=350&fit=crop&auto=format&dpr=2 2x`}
               alt={item.title}
@@ -113,8 +113,8 @@ export default function ProjectsList() {
                 position: 'absolute',
                 bottom: '0',
                 right: '0',
-                background: 'rgba(0, 0, 0, 0.6)',
-                color: 'white',
+                background: 'rgba(255, 255, 255, 0.6)',
+                color: '#A2A0A0',
                 padding: '4px 8px',
                 fontSize: '12px',
               }}
