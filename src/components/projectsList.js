@@ -47,14 +47,16 @@ export default function ProjectsList() {
 
   const buttonListStyle = {
     display: 'flex',
-    flexWrap: 'wrap', // Allow the buttons to wrap onto the next line
+    flexWrap: 'wrap', // This allows the buttons to wrap to the next line.
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop:'40px' // Corrected the typo from '40 px' to '40px'
+    marginTop: '40px', // Fixed typo from '40 px' to '40px'.
+    maxWidth: '600px', // Adjust as needed; this ensures two buttons per row on small screens.
+    margin: '0 auto', // Center the buttons container.
   };
   
+
   const buttonStyle = {
-    width: 'calc(50% - 40px)', // Each button will take up half the width minus the margins
     backgroundColor: 'white',
     color: '#A2A0A0',
     margin: '0 20px 10px 20px'
@@ -103,7 +105,10 @@ export default function ProjectsList() {
 
       <ImageList cols={numCols} gap={36}>
         {filteredItems.map((item) => (
-          <ImageListItem key={uuidv4()} style={{borderRadius:'10px', padding: '30px', backgroundColor: '#EEF4F8', color: '#648AA0'}}>
+          <ImageListItem
+          key={uuidv4()}
+          className="custom-image-list-item"
+          style={{borderRadius:'10px', padding: '30px', backgroundColor: '#EEF4F8', color: '#648AA0'}}>
             <img
               src={`${item.img}?w=350&fit=crop&auto=format`}
               srcSet={`${item.img}?w=350&fit=crop&auto=format&dpr=2 2x`}

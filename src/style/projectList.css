@@ -10,3 +10,10 @@ h5 {
   margin: 20px;
   text-align: center;
 }
+
+@media only screen and (max-width: 768px) {
+  .custom-image-list-item {
+    width: 80% !important;  /* or any percentage/size you prefer */
+    margin: 0 auto !important;
+  }
+}
