@@ -11,10 +11,7 @@ function Projects() {
   useEffect(() => {
     document.body.style.overflow = 'auto';  // enable scrolling when component mounts
 
-    return () => {
-        // Here you can either reset it to 'hidden' or leave it at 'auto' 
-        // depending on what you want when navigating away from Projects
-    }
+    return () => {}
 }, []);
 
   return (

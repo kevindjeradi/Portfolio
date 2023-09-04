@@ -47,12 +47,14 @@ export default function ProjectsList() {
 
   const buttonListStyle = {
     display: 'flex',
+    flexWrap: 'wrap', // Allow the buttons to wrap onto the next line
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop:'40 px'
+    marginTop:'40px' // Corrected the typo from '40 px' to '40px'
   };
-
+  
   const buttonStyle = {
+    width: 'calc(50% - 40px)', // Each button will take up half the width minus the margins
     backgroundColor: 'white',
     color: '#A2A0A0',
     margin: '0 20px 10px 20px'
