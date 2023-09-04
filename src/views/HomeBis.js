@@ -15,10 +15,14 @@ function HomeBis() {
     useVanta();
 
     useEffect(() => {
-        document.body.style.overflow = 'hidden';  // disable scrolling when component mounts
-
+        if (window.innerWidth <= 600) {
+            document.body.style.overflow = 'auto';  // enable scrolling for small screens
+        } else {
+            document.body.style.overflow = 'hidden';  // disable scrolling for larger screens
+        }
+    
         return () => {
-            document.body.style.overflow = 'auto'; // enable scrolling when component unmounts
+            document.body.style.overflow = 'auto'; // reset to default when component unmounts
         }
     }, []);
 
