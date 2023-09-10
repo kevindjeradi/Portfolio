@@ -17,9 +17,9 @@ function useVantaFog() {
                 midtoneColor: 0xcacaca,
                 lowlightColor: 0xf7f7f7,
                 baseColor: 0xffffff,
-                blurFactor: 0.36,
-                speed: 2.00,
-                zoom: 2.50
+                blurFactor: 0.60,
+                speed: 1.00,
+                zoom: 1.00
             }));
         }
         return () => {

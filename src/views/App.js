@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Projects from './Projects';
 import HomePage from './HomePage';
-import HomeBis from './HomeBis';
 
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-              path="/" element={<HomeBis />}/>
+              path="/" element={<HomePage />}/>
         <Route
               path="/projects" element={<Projects />}/>
       </Routes>
