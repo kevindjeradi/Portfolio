@@ -72,7 +72,7 @@ function VideoList({ onVideoSelect, refresh }) {
                             key={video._id} 
                             className="video-card"
                             style={{ 
-                                backgroundImage: `url(http://hakedj.be/api/${encodeURIComponent(video.thumbnailPath)})`,
+                                backgroundImage: `url(http://hakedj.be/${encodeURIComponent(video.thumbnailPath)})`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
                             }}
