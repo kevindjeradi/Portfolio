@@ -1,0 +1,190 @@
+/* VideoPage.css */
+.VideoPage {
+  text-align: center;
+  color: #B1B1B1;
+}
+
+.VideoPage-link {
+  color: #61dafb;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.video-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Centers the cards horizontally */
+  align-items: center;     /* Centers the cards vertically (optional) */
+  padding: 20px 0;         /* Adds some padding to the top and bottom */
+}
+
+.video-card-wrapper {
+  min-width: 200px;
+  min-height: 250px;
+  padding: 30px; /* Add some padding around the inner card */
+  border-radius: 10px;
+  background-color: #EEF4F8;
+  margin: 10px; /* Adjust as needed */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the cards horizontally */
+  align-items: center;     /* Centers the cards vertically (optional) */
+  padding: 10px 0;         /* Adds some padding to the top and bottom */
+}
+
+/* Styles for individual video cards */
+.video-card {
+  color: black;
+  border: 1px solid #ddd;
+  padding: 20px 0;
+  border-radius: 5px; /* You can adjust this if needed */
+  width: 80%;
+  text-align: center;
+  margin: 0; /* Remove margin since it's now applied to the wrapper */
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Add this to create a blurred overlay */
+.video-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  backdrop-filter: blur(1px); /* This will blur the background image */
+  z-index: 0; /* Place it below the content */
+}
+
+/* Ensure the content of the card is above the blurred overlay */
+.video-card h3, .video-card button {
+  position: relative;
+  z-index: 1;
+}
+
+.video-card button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #97B5C7;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.video-card button:hover {
+  background-color: #0056b3;
+}
+
+.video-card button:last-child {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+.video-card button:last-child:hover {
+  background-color: #c82333;
+}
+
+.resizable-video-container {
+  border: 1px solid #ccc;
+  resize: both;           /* Allows resizing in both directions */
+  overflow: auto;         /* Important for the resize handle to show */
+  display: inline-block;  /* Makes the container fit the video's size */
+  max-width: 100%;        /* Optional: Ensures the container doesn't exceed the parent's width */
+  width: 640px;           /* Default width */
+  height: 360px;          /* Default height */
+}
+
+.resizable-video-container video {
+  width: 100%;            /* Makes the video take the full width of its container */
+  height: auto;           /* Maintains the video's aspect ratio */
+}
+
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #f3f3f3;
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.5s;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content p {
+  font-size: 30px;
+}
+
+.modal-title {
+  font-weight: bold; /* Make the title bold */
+  margin-bottom: 20px; /* Add some space below the title */
+}
+
+.modal-buttons {
+  display: flex; /* Align the buttons horizontally */
+  justify-content: space-between; /* Distribute the buttons evenly */
+  margin-top: 20px; /* Add some space above the buttons */
+}
+
+.modal-btn {
+  padding: 10px 20px; /* Increase the padding for the buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn {
+  background-color: #97B5C7;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #0056b3;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c82333;
+}

@@ -1,0 +1,81 @@
+.upload-container {
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;           /* Add flexbox */
+    flex-direction: column;  /* Stack children vertically */
+    align-items: center;     /* Center children horizontally */
+}
+
+.upload-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-container input[type="file"] {
+    display: none; /* Hide the default file input */
+}
+
+.btn {
+    padding: 10px 15px;
+    min-height: 40px; /* Use min-height instead of a fixed height */
+    background: #97B5C7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 50%; /* Make it half of the container's width */
+    text-align: center; /* Center the text */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+    line-height: 1.5; /* Adjust line height for better vertical centering */
+    margin: 10px 0; /* Add some margin for spacing */
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.btn:disabled {
+    background: #ebebeb;
+    cursor: not-allowed;
+}
+
+.custom-file-upload {
+    margin-bottom: 15px;
+}
+
+.custom-file-upload.file-selected {
+    background: #28a745; /* Green color when a file is selected */
+}
+
+.filename {
+    background-color: red;
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.progress-container {
+    margin-top: 20px;
+    height: 20px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    width: 50%; /* Make it half of the container's width */
+}
+
+.progress-bar {
+    height: 100%;
+    background: #007BFF;
+    border-radius: 5px;
+}
+
+.notification {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+    width: 50%; /* Make it half of the container's width */
+    text-align: center; /* Center the text */
+}

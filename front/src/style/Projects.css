@@ -1,0 +1,24 @@
+/* Projects.css */
+.Projects-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: #AAAAAA;
+}
+
+#vanta-bg-fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.Projects-link {
+  color: #61dafb;
+}
