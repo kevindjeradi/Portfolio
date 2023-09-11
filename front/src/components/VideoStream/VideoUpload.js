@@ -13,7 +13,7 @@ function VideoUpload({ onUploadSuccess }) {
     const [filename, setFilename] = useState('Choose file');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/videos')
+        axios.get('http://hakedj.be/api/videos')
             .then(response => {
                 setVideos(response.data);
             })
@@ -43,7 +43,7 @@ function VideoUpload({ onUploadSuccess }) {
         formData.append('video', fileInput.current.files[0]);
         formData.append('title', fileName);
 
-        axios.post('http://localhost:5000/api/upload', formData, {
+        axios.post('http://hakedj.be/api/upload', formData, {
             onUploadProgress: (progressEvent) => {
                 const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
                 setUploadProgress(percentCompleted);

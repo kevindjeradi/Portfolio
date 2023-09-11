@@ -1,7 +1,7 @@
 import React from 'react';
 
 function VideoPlayer({ videoPath }) {
-    const fullVideoPath = `http://localhost:5000/uploads/${videoPath}`;
+    const fullVideoPath = `http://hakedj.be/api/uploads/${videoPath}`;
 
     return (
         <div>

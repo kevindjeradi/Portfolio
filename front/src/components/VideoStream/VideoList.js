@@ -10,7 +10,7 @@ function VideoList({ onVideoSelect, refresh }) {
     const [videoToDelete, setVideoToDelete] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/videos')
+        axios.get('http://hakedj.be/api/videos')
             .then(response => {
                 setVideos(response.data);
             })
@@ -29,7 +29,7 @@ function VideoList({ onVideoSelect, refresh }) {
     };
 
     const confirmDelete = () => {
-        axios.delete(`http://localhost:5000/api/delete/${videoToDelete.id}`)
+        axios.delete(`http://hakedj.be/api/delete/${videoToDelete.id}`)
             .then(() => {
                 setVideos(videos.filter(video => video._id !== videoToDelete.id));
                 setShowModal(false);
@@ -72,7 +72,7 @@ function VideoList({ onVideoSelect, refresh }) {
                             key={video._id} 
                             className="video-card"
                             style={{ 
-                                backgroundImage: `url(http://localhost:5000/${encodeURIComponent(video.thumbnailPath)})`,
+                                backgroundImage: `url(http://hakedj.be/api/${encodeURIComponent(video.thumbnailPath)})`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
                             }}
