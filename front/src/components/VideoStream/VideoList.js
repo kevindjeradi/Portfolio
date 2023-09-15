@@ -62,27 +62,37 @@ function VideoList({ onVideoSelect, refresh }) {
         );
     }
 
+    function VideoCard({ video, handlePlay, handleDelete }) {
+        return (
+            <div className="card">
+                <div className="background-image" style={{ 
+                    backgroundImage: `url(http://hakedj.be/${encodeURIComponent(video.thumbnailPath)})`
+                }}>
+                </div>
+                <div className="border"></div>
+                <div className="content">
+                    <h3>{video.title}</h3>
+                    <div className="button-container">
+                        <button className='play-button' onClick={() => handlePlay(video.videoPath)}>Play</button>
+                        <button className='delete-button' onClick={() => handleDelete(video._id, video.title)}>Delete</button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div>
             <h2>Liste des vidéos</h2>
             <div className="video-list">
-                {videos.map(video => (
-                    <div className="video-card-wrapper">
-                        <div
-                            key={video._id} 
-                            className="video-card"
-                            style={{ 
-                                backgroundImage: `url(http://hakedj.be/${encodeURIComponent(video.thumbnailPath)})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }}
-                        >
-                            <h3>{video.title}</h3>
-                            <button onClick={() => handlePlay(video.videoPath)}>Play</button>
-                            <button onClick={() => handleDelete(video._id, video.title)}>Delete</button>
-                        </div>
-                    </div>
-                ))}
+            {videos.map(video => (
+    <VideoCard 
+        key={video._id} 
+        video={video} 
+        handlePlay={handlePlay} 
+        handleDelete={handleDelete} 
+    />
+))}
             </div>
             {selectedVideo && <VideoPlayer key={selectedVideo} videoPath={selectedVideo} />}
             <DeleteModal 

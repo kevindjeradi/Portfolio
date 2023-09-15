@@ -70,6 +70,12 @@
     border-radius: 5px;
 }
 
+.upload-speed {
+    color: black;
+    margin-top: 10px;
+}
+
+
 .notification {
     margin-top: 20px;
     padding: 10px;

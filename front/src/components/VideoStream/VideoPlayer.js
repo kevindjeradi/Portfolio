@@ -5,7 +5,8 @@ function VideoPlayer({ videoPath }) {
 
     return (
         <div>
-            <h2>Video Player</h2>
+            <h2>Lecteur vidéo</h2>
+            <h5>{videoPath}</h5>
             <div className="resizable-video-container">
                 <video controls>
                     <source src={fullVideoPath} type="video/mp4" />

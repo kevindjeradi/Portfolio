@@ -26,75 +26,152 @@ button:disabled {
   padding: 20px 0;         /* Adds some padding to the top and bottom */
 }
 
-.video-card-wrapper {
-  min-width: 200px;
-  min-height: 250px;
-  padding: 30px; /* Add some padding around the inner card */
-  border-radius: 10px;
-  background-color: #EEF4F8;
-  margin: 10px; /* Adjust as needed */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centers the cards horizontally */
-  align-items: center;     /* Centers the cards vertically (optional) */
-  padding: 10px 0;         /* Adds some padding to the top and bottom */
-}
-
-/* Styles for individual video cards */
-.video-card {
-  color: black;
-  border: 1px solid #ddd;
-  padding: 20px 0;
-  border-radius: 5px; /* You can adjust this if needed */
-  width: 80%;
-  text-align: center;
-  margin: 0; /* Remove margin since it's now applied to the wrapper */
+.card {
+  width: 300px;
+  height: 200px;
   position: relative;
+  display: grid;
+  place-content: center;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
   overflow: hidden;
 }
 
-
-/* Add this to create a blurred overlay */
-.video-card::before {
-  content: "";
+.background-image {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
-  backdrop-filter: blur(1px); /* This will blur the background image */
-  z-index: 0; /* Place it below the content */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Apply a blur by default */
+  z-index: 0; /* Adjust the z-index to 0 */
 }
 
-/* Ensure the content of the card is above the blurred overlay */
-.video-card h3, .video-card button {
-  position: relative;
-  z-index: 1;
+/* Reduce the blur intensity when hovering over the card */
+.card:hover .background-image {
+  filter: blur(1px);
 }
 
-.video-card button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* Hide the play and delete buttons by default */
+.card .play-button, 
+.card .delete-button {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;; /* Smooth transition */
+  z-index: 1; /* Ensure buttons are above the background image */
+}
+
+/* Show the play and delete buttons when hovering over the card */
+.card:hover .play-button, 
+.card:hover .delete-button {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card .play-button {
   background-color: #97B5C7;
-  color: white;
+  border: none;
+  padding: 10px 15px;
+  color: #fff;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.video-card button:hover {
+.card .play-button:hover {
   background-color: #0056b3;
 }
 
-.video-card button:last-child {
+.card .delete-button {
   background-color: #dc3545;
-  margin-left: 10px;
+  border: none;
+  padding: 10px 15px;
+  color: #fff; 
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.video-card button:last-child:hover {
+.card .delete-button:hover {
   background-color: #c82333;
+}
+
+.bottom-text {
+  position: absolute;
+  left: 50%;
+  bottom: 13px;
+  transform: translateX(-50%);
+  font-size: 6px;
+  text-transform: uppercase;
+  padding: 0px 5px 0px 8px;
+  color: #0056B3;
+  background: #243137;
+  opacity: 0;
+  letter-spacing: 7px;
+  transition: all 0.5s ease-in-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Centers children vertically */
+  align-items: center;     /* Centers children horizontally */
+  height: 100%;            /* Takes up the full height of the card */
+  transition: all 0.5s ease-in-out;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row; /* Align buttons horizontally */
+  gap: 10px;           /* Adds space between the buttons */
+}
+
+.content h3 {
+  color: black;
+  font-weight: bold; /* Makes the text bolder */
+  background-color: rgba(255, 255, 255, 0.5); /* Adds a semi-transparent white background */
+  padding: 5px 10px; /* Adds some padding around the title */
+  border-radius: 5px; /* Rounds the corners of the background */
+  max-width: 100%; /* Adjust this value based on your design */
+  white-space: normal; /* Allows the text to wrap */
+  line-height: 1.2em; /* Adjust based on your design */
+  max-height: 2.4em; /* Twice the line-height to allow for two lines */
+  overflow: hidden; /* Hide the overflowed content */
+}
+
+.card:hover {
+  border-radius: 0;
+  transform: scale(1.1);
+}
+
+.card:hover .bottom-text {
+  letter-spacing: 3px;
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+.card:hover .content .logo-bottom-text {
+  opacity: 1;
+  letter-spacing: 9.5px;
+}
+
+@keyframes opacity {
+  0% {
+    border-right: 1px solid transparent;
+  }
+
+  10% {
+    border-right: 1px solid #0056B3;
+  }
+
+  80% {
+    border-right: 1px solid #0056B3;
+  }
+
+  100% {
+    border-right: 1px solid transparent;
+  }
 }
 
 .resizable-video-container {
@@ -187,4 +264,42 @@ button:disabled {
 
 .cancel-btn:hover {
   background-color: #c82333;
+}
+
+/* Simulate hover on tap */
+
+.card.active .play-button, 
+.card.active .delete-button {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card.active {
+    border-radius: 0;
+    transform: scale(1.1);
+}
+
+.card.active .background-image {
+    filter: blur(1px);
+}
+
+.card.active .bottom-text {
+    letter-spacing: 3px;
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+.card.active .content .logo-bottom-text {
+    opacity: 1;
+    letter-spacing: 9.5px;
+}
+
+
+/* Show the play and delete buttons for small devices */
+@media (max-width: 768px) {
+  .card .play-button, 
+  .card .delete-button {
+    opacity: 1;
+    visibility: visible;
+  }
 }

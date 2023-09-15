@@ -10,7 +10,7 @@ function VideoUpload({ onUploadSuccess }) {
     const [loading, setLoading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [videos, setVideos] = useState([]);
-    const [filename, setFilename] = useState('Choose file');
+    const [filename, setFilename] = useState('Choisir un fichier');
 
     useEffect(() => {
         axios.get('http://hakedj.be/api/videos')
@@ -71,20 +71,20 @@ function VideoUpload({ onUploadSuccess }) {
             setLoading(false);
             setUploadProgress(0);
             fileInput.current.value = null;  // Reset the file input
-            setFilename('Choose file');      // Reset the filename display
+            setFilename('Choisir un fichier');      // Reset the filename display
         });
     };
 
     return (
         <div className="upload-container">
-            <h2>Upload Video</h2>
+            <h2>Envoyer une vidéo</h2>
             <label 
-                className={`btn custom-file-upload ${filename !== 'Choose file' ? 'file-selected' : ''}`} 
+                className={`btn custom-file-upload ${filename !== 'Choisir un fichier' ? 'file-selected' : ''}`} 
                 htmlFor="fileInput">
                 {filename}
             </label>
             <input type="file" id="fileInput" ref={fileInput} onChange={handleFileChange} />
-            <button className='btn' onClick={handleUpload} disabled={filename === 'Choose file' || loading}>Upload</button>
+            <button className='btn' onClick={handleUpload} disabled={filename === 'Choisir un fichier' || loading}>Envoyer</button>
             {loading && (
                 <div className="progress-container">
                     <div className="progress-bar" style={{ width: `${uploadProgress}%` }}></div>
