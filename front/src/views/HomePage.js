@@ -2,11 +2,11 @@ import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Button, Paper, Grid } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
-import WorkIcon from '@mui/icons-material/Work';
-import SchoolIcon from '@mui/icons-material/School';
 import '../style/HomePage.css';
 import avatar from '../images/portrait.jpg';
+import emploi from '../images/icones/emploi.gif';
+import espion from '../images/icones/espion.gif';
+import ecrans from '../images/icones/ecrans.gif';
 import CustomImageAvatar from '../components/CustomImageAvatar';
 import IconWrapper from '../components/IconWrapper';
 
@@ -25,9 +25,9 @@ function HomePage() {
     }, []);
 
     const routeDetails = [
-        { route: "/Bio", icon: <PersonIcon fontSize="large" />, title: "Bio" },
-        { route: "/Projects", icon: <WorkIcon fontSize="large" />, title: "Mes Projets" },
-        { route: "/Experience", icon: <SchoolIcon fontSize="large" />, title: "Mon Experience" }
+        { route: "/Bio", icon: <img className="home_gif" src={espion} alt="Bio" />, title: "Bio" },
+        { route: "/Projects", icon: <img className="home_gif" src={ecrans} alt="ecran" />, title: "Mes Projets" },
+        { route: "/Experience", icon: <img className="home_gif" src={emploi} alt="Experience" />, title: "Mon Experience" }
     ];
 
     return (

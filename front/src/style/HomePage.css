@@ -2,6 +2,12 @@ body, html {
     background-color: white;
 }
 
+.home_gif {
+  width: 60px;
+  height: 60px;
+  mix-blend-mode: multiply;
+}
+
 #vanta-bg {
     position: fixed;
     top: 0;

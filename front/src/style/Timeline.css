@@ -6,36 +6,139 @@
 }
 
 .experience-card {
-  width: 254px;
-  height: 190px;
+  width: 300px;
+  height: 300px;
   transform: rotate(90deg);
-  background: #00BCD4;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  transition-duration: 1.5s;
-  transition-property: width, height, transform;
+  background: #97B5C7 !important;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px !important;
+  transition-duration: 1.5s !important;
+  transition-property: width, height, transform !important;
   margin: 50px;
+  color: white; /* Text color */
+  position: relative;
 }
 
 .experience-card:hover,
 .experience-card.active {
-  width: 190px;
-  height: 254px;
+  width: 300px;
+  height: 300px;
   transform: rotate(0deg);
 }
 
+.TitleDefault {
+  position: absolute; /* Position it absolutely within the card */
+  bottom: 15px; /* Position it 10px from the bottom of the card */
+  transform: translateX(-50%); /* Adjust for perfect centering */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  transform: rotate(-90deg);
+  color: white;
+}
+
+.experience-card:hover .TitleDefault,
+.experience-card.active .TitleDefault {
+  display: none;
+}
+
 .info-box {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Distribute space between children */
   width: 100%;
-  height: 200px;
-  padding: .7rem;
+  height: 300px;
+  margin-left: 20px;
   font-size: smaller;
-  border-radius: 1rem;
-  text-align: center;
-  background-color: #fae4c3;
-  color: #fae4c3;
+  border-radius: 10px;
+  background-color: #F4F3F1;
+  color: #F4F3F1;
   transition-duration: 1s;
   transition-property: color;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .info-box:hover {
   color: #212121;
+}
+
+.experience-card.active .info-box {
+  color: #212121;
+}
+
+.experience-card.active .info-box .info-title,
+.experience-card.active .info-box .info-company {
+  color: #FFFFFF;
+}
+
+.info-box:hover .info-title,
+.info-box:hover .info-company {
+  color: #FFFFFF;
+}
+
+.info-header {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  width: 100%;
+}
+
+.info-title {
+  text-align: center; /* Center text horizontally */
+  margin-bottom: 10px !important; /* Add some space between title and company name */
+}
+
+.info-company {
+  text-align: center; /* Center text horizontally */
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center description vertically */
+  flex-grow: 1; /* Allow this container to grow and take up remaining space */
+}
+
+.info-description {
+  text-align: center;
+}
+
+
+.dots-animation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.dots-animation.up {
+  flex-direction: column-reverse;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00BCD4;
+  margin: 5px 0;
+  opacity: 0;
+  animation: fadeInOut 1s forwards;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
