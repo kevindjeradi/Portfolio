@@ -1,0 +1,79 @@
+/* SocialButton.css */
+.button-container {
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.button-container.left {
+  justify-content: flex-start;
+}
+
+.button-container.center {
+  justify-content: center;
+}
+
+.button-container.right {
+  justify-content: flex-end;
+}
+
+.social-button {
+  margin: 0 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-button-link {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  text-align: center;
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: all 0.4s ease;
+}
+
+.social-button-link::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  height: 100%;
+  width: 10px;
+  background: #b1b1b1;
+  transition: all 0.4s ease;
+  transform: rotate(0deg) skewY(-45deg);
+}
+
+.social-button-link::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: -5px;
+  height: 10px;
+  width: 100%;
+  background: #b1b1b1;
+  transition: all 0.4s ease;
+  transform: rotate(0deg) skewX(-45deg);
+}
+
+.social-button-link:hover {
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(10px, -10px);
+  box-shadow: -20px 20px 10px rgba(255, 255, 255, 0.5);
+}
+
+.social-button-link:hover::before {
+  background: white;
+}
+
+.social-button-link:hover::after {
+  background: white;
+}

@@ -1,7 +1,8 @@
 // Timeline.js
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import '../style/Timeline.css';
+import CustomAppBar from 'components/CustomAppBar';
+import 'style/Experience.css';
 
 const experiences = [
   { title: 'Job 1', company: 'Entreprise 1', description: "Ceci est une description d'emploi tout à fait classique avec diverses taches effectuées pour prouver des pseudos compétences à un rh n°1", date: '01 . 05 . 2022' },
@@ -14,7 +15,7 @@ const experiences = [
   { title: 'Job 8', company: 'Entreprise 8', description: "Ceci est une description d'emploi tout à fait classique avec diverses taches effectuées pour prouver des pseudos compétences à un rh n°8", date: '01 . 05 . 2022' },
 ];
 
-function Timeline() {
+function Experiences() {
   const [visibleCount, setVisibleCount] = useState(1);
   const [nextVisibleCount, setNextVisibleCount] = useState(null);
   const [activeCard, setActiveCard] = useState(null);
@@ -97,6 +98,7 @@ function Timeline() {
 
   return (
     <div className="timeline" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+      <CustomAppBar />
       {experiences.slice(0, visibleCount).map((exp, index) => (
         <Card 
           key={index} 
@@ -130,4 +132,4 @@ function Timeline() {
   );
 }
 
-export default Timeline;
+export default Experiences;

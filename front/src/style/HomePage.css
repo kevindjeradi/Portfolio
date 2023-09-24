@@ -8,15 +8,6 @@ body, html {
   mix-blend-mode: multiply;
 }
 
-#vanta-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    pointer-events: none;
-}
-
 .grid-item-holder {
     height: calc(0.60 * (100vh - 64px));
     display: flex;
@@ -30,6 +21,7 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: height 0.5s ease;
 }
 
 .grid-item-paper:hover {
@@ -41,10 +33,10 @@ body, html {
     width: calc(0.7 * 0.6 * (100vh - 64px)); 
     height: calc(0.5 * 0.6 * (100vh - 64px));
     background: #EFEFEF;
-    transition: box-shadow 0.5s;
     display: flex;                  
     align-items: center;            
-    justify-content: center;        
+    justify-content: center;
+    transition: box-shadow 0.5s, height 0.5s ease;
 }
 
 .hoverable-grid-item:hover .inner-paper {
@@ -72,20 +64,12 @@ body, html {
     color: #AAAAAA;
     font-size: 30px;
     font-weight: normal;
+    transition: font-weight 0.5s, color 0.5s;
 }
 
 .inner-paper svg {
     fill: #AAAAAA;
-}
-
-@media (max-width: 600px) {
-    .text-center-on-small {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+    transition: fill 0.5s;
 }
 
 .center-container {
@@ -119,11 +103,11 @@ body, html {
   
   .content h2:nth-child(1) {
     color: transparent;
-    -webkit-text-stroke: 2px #97B5C7;
+    -webkit-text-stroke: 2px #B1B1B1;
   }
   
   .content h2:nth-child(2) {
-    color: #97B5C7;
+    color: #B1B1B1;
     animation: animate 4s ease-in-out infinite;
   }
   
@@ -155,5 +139,26 @@ body, html {
         100% 100%,
         0% 100%
       );
+    }
+  }
+
+  @media (max-width: 600px) {
+    .inner-paper {
+        width: calc(0.5 * 0.6 * (100vh - 64px));  /* Adjusted width for mobile */
+        height: calc(0.5 * 0.6 * (100vh - 64px)); /* Adjusted height for mobile */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .firstGrid {
+      padding: 40px;
+    }
+  
+    .text-center-on-small {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
   }

@@ -1,8 +1,8 @@
 //VideoUpload.js
 import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../style/VideoPage.css';
-import '../../style/VideoUpload.css';
+import 'style/VideoPage.css';
+import 'style/VideoUpload.css';
 
 function VideoUpload({ onUploadSuccess }) {
     const fileInput = useRef(null);

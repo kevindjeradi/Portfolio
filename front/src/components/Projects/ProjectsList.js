@@ -4,12 +4,27 @@ import Button from '@mui/material/Button';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { v4 as uuidv4 } from 'uuid';
-import '../style/projectList.css';
-
+import useMouseFocus from 'utils/UseMouseFocus';
+import 'style/ProjectList.css';
+import ProjectModal from 'components/Projects/ProjectModal';
 
 export default function ProjectsList() {
   const [activeTags, setActiveTags] = React.useState([]);
   const [numCols, setNumCols] = React.useState(3); // Initial number of columns
+  const [open, setOpen] = React.useState(false); // State for modal
+  const [selectedItem, setSelectedItem] = React.useState(null);
+
+  // Remove blue accessibilty outline on modals
+  useMouseFocus();
+
+  const handleItemOpen = (item) => {
+    setSelectedItem(item);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const updateCols = () => {
     if (window.innerWidth >= 992) {
@@ -33,12 +48,9 @@ export default function ProjectsList() {
   }, []);
 
   const handleTagClick = (tag) => {
-    // Check if the tag is already active
     if (activeTags.includes(tag)) {
-      // Remove the tag if it's active
       setActiveTags(activeTags.filter((t) => t !== tag));
     } else {
-      // Add the tag if it's not active
       setActiveTags([...activeTags, tag]);
     }
   };
@@ -47,14 +59,13 @@ export default function ProjectsList() {
 
   const buttonListStyle = {
     display: 'flex',
-    flexWrap: 'wrap', // This allows the buttons to wrap to the next line.
+    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '40px', // Fixed typo from '40 px' to '40px'.
-    maxWidth: '600px', // Adjust as needed; this ensures two buttons per row on small screens.
-    margin: '0 auto', // Center the buttons container.
+    marginTop: '40px',
+    maxWidth: '800px',
+    margin: '0 auto',
   };
-  
 
   const buttonStyle = {
     backgroundColor: 'white',
@@ -64,13 +75,12 @@ export default function ProjectsList() {
 
   const activeButtonStyle = {
     ...buttonStyle,
-    backgroundColor: '#97B5C7', // Change this to the desired color
+    backgroundColor: '#97B5C7',
     color: '#ffffff',
     fontWeight: 'bold'
   };
 
   const filteredItems = itemData.filter((item) => {
-    // Check if all selected tags are present in the item's tags
     return activeTags.length === 0 || activeTags.every((tag) => item.tags.includes(tag));
   });
 
@@ -101,14 +111,22 @@ export default function ProjectsList() {
         >
           Back
         </Button>
+        <Button
+          style={isTagActive('Mobile') ? activeButtonStyle : buttonStyle}
+          onClick={() => handleTagClick('Mobile')}
+        >
+          Mobile
+        </Button>
       </div>
 
       <ImageList cols={numCols} gap={36}>
         {filteredItems.map((item) => (
           <ImageListItem
-          key={uuidv4()}
-          className="custom-image-list-item"
-          style={{borderRadius:'10px', padding: '30px', backgroundColor: '#EEF4F8', color: '#648AA0'}}>
+            key={uuidv4()}
+            className="imageListItem"
+            style={{borderRadius:'10px', padding: '30px', backgroundColor: '#F4F3F1', color: '#648AA0'}}
+            onClick={() => handleItemOpen(item)}
+          >
             <img
               src={`${item.img}?w=350&fit=crop&auto=format`}
               srcSet={`${item.img}?w=350&fit=crop&auto=format&dpr=2 2x`}
@@ -130,12 +148,12 @@ export default function ProjectsList() {
             </div>
             <ImageListItemBar
               title={item.title}
-              subtitle={<span>{item.author}</span>}
               position="below"
             />
           </ImageListItem>
         ))}
       </ImageList>
+      {selectedItem && <ProjectModal open={open} handleClose={handleClose} item={selectedItem} />}
     </div>
   );
 }
@@ -143,38 +161,38 @@ export default function ProjectsList() {
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Projet 1',
-    author: '@bkristastucchio',
-    tags: ['Professionnel', 'Front'],
+    title: 'Hakedj.be',
+    stack: ['React', 'Mui', 'NodeJs', 'MongoDb'],
+    tags: ['Personnel', 'Front', 'Back'],
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
     title: 'Projet 2',
-    author: '@rollelflex_graphy726',
+    stack: ['NodeJs', 'MongoDb', 'Express'],
     tags: ['Personnel', 'Back'],
   },
   {
     img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
     title: 'Projet 3',
-    author: '@helloimnik',
+    stack: ['HTML', 'CSS', 'Javascript'],
     tags: ['Front'],
   },
   {
     img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
     title: 'Projet 4',
-    author: '@helzefzfzoimnik',
-    tags: ['Back'],
+    stack: ['Laravel', 'PostgreSQL'],
+    tags: ['Back', 'Professionnel'],
   },
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
     title: 'Projet 5',
-    author: '@bkristastucchio',
-    tags: ['Front'],
+    stack: ['Flutter', 'Firebase'],
+    tags: ['Front', 'Mobile'],
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
     title: 'Projet 6',
-    author: '@rollelflex_graphy726',
-    tags: ['Back'],
+    stack: ['Flutter', 'NodeJs', 'Express', 'Firebase'],
+    tags: ['Front', 'Back', 'Mobile'],
   },
 ];

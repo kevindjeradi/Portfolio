@@ -1,7 +1,8 @@
-import CustomImageAvatar from '../components/CustomImageAvatar';
-import ProjectsList from '../components/projectsList';
-import '../style/Projects.css';
-import avatar from '../images/photo.jpg'
+import CustomImageAvatar from 'components/CustomImageAvatar';
+import ProjectsList from 'components/Projects/ProjectsList';
+import CustomAppBar from 'components/CustomAppBar';
+import avatar from 'images/photo.jpg'
+import 'style/Projects.css';
 
 import { useEffect } from 'react';
 
@@ -15,6 +16,7 @@ function Projects() {
 
   return (
     <>
+      <CustomAppBar />
       <div className="Projects">
         <header className="Projects-header">
         <div className="center-container">

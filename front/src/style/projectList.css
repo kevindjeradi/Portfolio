@@ -6,13 +6,28 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* This will remove the outline for mouse users but keep it for keyboard users */
+.using-mouse :focus {
+  outline: none;
+}
+
 h5 {
   margin: 20px;
   text-align: center;
 }
 
+.imageListItem {
+  transition:  background-color 0.5s ease; /* Smooth transition for background-color */
+}
+
+.imageListItem:hover {
+  cursor: pointer;
+  background-color: #97B5C7 !important;
+  color: white !important;
+}
+
 @media only screen and (max-width: 768px) {
-  .custom-image-list-item {
+  .imageListItem {
     width: 80% !important;  /* or any percentage/size you prefer */
     margin: 0 auto !important;
   }

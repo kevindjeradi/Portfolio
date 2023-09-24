@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import VideoPlayer from './VideoPlayer';
-import '../../style/VideoPage.css';
+import VideoPlayer from 'components/VideoPage/VideoPlayer';
+import 'style/VideoPage.css';
 
 function VideoList({ onVideoSelect, refresh }) {
     const [videos, setVideos] = useState([]);

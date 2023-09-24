@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import VideoList from '../components/VideoStream/VideoList';
-import VideoUpload from '../components/VideoStream/VideoUpload';
-import VideoPlayer from '../components/VideoStream/VideoPlayer';
-import '../style/VideoPage.css';
+import VideoList from 'components/VideoPage/VideoList';
+import VideoUpload from 'components/VideoPage/VideoUpload';
+import VideoPlayer from 'components/VideoPage/VideoPlayer';
+import CustomAppBar from 'components/CustomAppBar';
+import 'style/VideoPage.css';
 
 function VideoPage() {
     const [selectedVideoPath, setSelectedVideoPath] = useState(null);
@@ -18,6 +19,7 @@ function VideoPage() {
 
     return (
         <div className='VideoPage'>
+            <CustomAppBar />
             <VideoUpload onUploadSuccess={handleUploadSuccess} />
             <VideoList onVideoSelect={handleVideoSelect} refresh={refreshVideos} />
             {selectedVideoPath && <VideoPlayer videoPath={selectedVideoPath} />}
