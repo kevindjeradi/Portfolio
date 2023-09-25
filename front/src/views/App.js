@@ -3,6 +3,7 @@ import Projects from 'views/Projects';
 import HomePage from 'views/HomePage';
 import VideoPage from 'views/VideoPage';
 import Experiences from 'views/Experiences';
+import ExperiencesBis from 'views/ExperiencesBis';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
               path="/stream" element={<VideoPage />}/>
         <Route
               path="/experience" element={<Experiences />} />
+        <Route
+              path="/experiences" element={<ExperiencesBis />} />
       </Routes>
     </Router>
   );

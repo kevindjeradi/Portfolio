@@ -97,38 +97,41 @@ function Experiences() {
   }, [visibleCount]);
 
   return (
-    <div className="timeline" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+    <div>
       <CustomAppBar />
-      {experiences.slice(0, visibleCount).map((exp, index) => (
-        <Card 
-          key={index} 
-          className={`experience-card ${activeCard === index ? 'active' : ''}`}
-          ref={(el) => cardRefs.current[index] = el}
-          onTouchStart={() => handleTouch(index)}
-        >
-          <CardContent>
-            <Typography color="white" fontWeight="700" mb={0.5}>
-              {exp.date}
-            </Typography>
-            <div className="info-box">
-              <div className="info-header">
-                <Typography variant="h4" className="info-title">{exp.title}</Typography>
-                <Typography variant="h6" className="info-company">{exp.company}</Typography>
+        <div className="timeline" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+        {experiences.slice(0, visibleCount).map((exp, index) => (
+          <Card 
+            key={index} 
+            className={`experience-card ${activeCard === index ? 'active' : ''}`}
+            ref={(el) => cardRefs.current[index] = el}
+            onTouchStart={() => handleTouch(index)}
+          >
+            <CardContent>
+              <Typography color="white" fontWeight="700" mb={0.5}>
+                {exp.date}
+              </Typography>
+              <div className="info-box">
+                <div className="info-header">
+                  <Typography variant="h4" className="info-title">{exp.title}</Typography>
+                  <Typography variant="h6" className="info-company">{exp.company}</Typography>
+                </div>
+                <div className="info-content">
+                  <Typography variant="body2" className="info-description">{exp.description}</Typography>
+                </div>
               </div>
-              <div className="info-content">
-                <Typography variant="body2" className="info-description">{exp.description}</Typography>
-              </div>
-            </div>
-          </CardContent>
-          <Typography className='TitleDefault' variant="subtitle1"  sx={{ fontWeight: 'bold' }}>{exp.title}</Typography>
-        </Card>
-      ))}
-      {animating && <div className={`dots-animation ${scrollDirection}`} ref={dotsRef}>
-        <div className="dot"></div>
-        <div className="dot"></div>
-        <div className="dot"></div>
-      </div>}
+            </CardContent>
+            <Typography className='TitleDefault' variant="subtitle1"  sx={{ fontWeight: 'bold' }}>{exp.title}</Typography>
+          </Card>
+        ))}
+        {animating && <div className={`dots-animation ${scrollDirection}`} ref={dotsRef}>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </div>}
+      </div>
     </div>
+    
   );
 }
 
