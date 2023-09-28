@@ -10,7 +10,7 @@ const TimelineItem = (props) => {
     dateText,
     dateStyle,
     dateInnerStyle,
-    color,
+    iconColor,
     visibilitySensorProps,
     icon
   } = props;
@@ -21,13 +21,16 @@ const TimelineItem = (props) => {
     if (isVisible) {
       setVisible(true);
     }
+    else{
+      setVisible(false);
+    }
   };
 
   return (
     <div
       id={id}
       className={`entry ${children === "" ? "timeline-item--no-children" : ""}`}
-      style={{ color }}
+      style={{ iconColor  }}
     >
       <VisibilitySensor
         {...visibilitySensorProps}
@@ -55,10 +58,7 @@ const TimelineItem = (props) => {
                 visible ? "bounce-in" : "is-hidden"
               }`}
               style={{
-                background: "#ddd",
-                padding: "20px",
                 borderRadius: "8px",
-                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)"
               }}
             >
               {children}
@@ -78,7 +78,7 @@ TimelineItem.propTypes = {
   ]),
   dateStyle: PropTypes.shape({}),
   dateInnerStyle: PropTypes.shape({}),
-  color: PropTypes.string,
+  iconColor: PropTypes.string,
   dateText: PropTypes.string,
   visibilitySensorProps: PropTypes.shape({}),
   icon: PropTypes.node
@@ -89,9 +89,9 @@ TimelineItem.defaultProps = {
   children: "",
   dateStyle: null,
   dateInnerStyle: null,
-  color: "#000",
+  iconColor: "#e86971",
   dateText: "",
-  visibilitySensorProps: { partialVisibility: true, offset: { bottom: 250 } },
+  visibilitySensorProps: { partialVisibility: true, offset: { bottom: 200 } },
   icon: null
 };
 

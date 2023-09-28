@@ -1,6 +1,11 @@
+/* TimelineItem.css */
 .body-container {
+    height: 40vh;
     position: relative;
     margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .timeline-item--no-children .body-container {
     background: transparent;
@@ -49,6 +54,8 @@
     clear: both;
     text-align: left;
     position: relative;
+    width: 100%;
+    margin: 30px;
   }
   .timeline--animate .entry .is-hidden {
     visibility: hidden;
@@ -99,21 +106,7 @@
     width: 66%;
     color: #333;
   }
-  .entry .body p {
-    line-height: 1.4em;
-  }
-  .entry .body h1,
-  .entry .body h2,
-  .entry .body h3,
-  .entry .body h4,
-  .entry .body h5,
-  .entry .body h6 {
-    margin: 0;
-  }
-  .entry .body p:first-child {
-    margin-top: 0;
-    font-weight: 400;
-  }
+
   @-o-keyframes bounce-in {
     0% {
       opacity: 0;
@@ -164,8 +157,13 @@
     }
   }
   
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+  @media only screen and (max-width: 900px) {
+    /* For tablets and below: */
+
+    .body-container {
+      height: 30vh;
+    }
+
     .icon-container {
       right: auto; /* reset the right property */
     }

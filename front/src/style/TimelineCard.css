@@ -1,0 +1,83 @@
+/* TimelineCard.css */
+.timeline-card {
+  height: 100%;
+  width: 80%;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease-in-out 0.3s;
+}
+
+.timeline-card-image {
+  background-image: url("https://media2.giphy.com/media/FmtaK8zS57mvWwxcWi/giphy.webp?cid=ecf05e4704ak2nxmtgtb1wdjn9pl6r04xghcysmanvtknogo&ep=v1_gifs_search&rid=giphy.webp&ct=g");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.timeline-card-content {
+  text-align: center;
+  opacity: 0;
+  padding: 0 20px 20px;
+  position: absolute;
+  top: 50%;
+  height: 0;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: height 0.3s ease-in-out 0.6s, opacity 0.3s ease-in-out 0.6s;
+}
+
+.timeline-card.expanded {
+  width: 100%;
+  height: 50vh;
+}
+
+.timeline-card.expanded .timeline-card-image {
+  height: 50%;
+  background-size: contain;
+  background-position: top;
+}
+
+.timeline-card.expanded .timeline-card-content {
+  opacity: 1;
+  height: 50%;
+}
+
+.timeline-card-content-header {
+  display: flex; /* Set to flex to align children in a row */
+  justify-content: space-between; /* Space out the title and company */
+  align-items: center; /* Align items vertically in the center */
+}
+
+.timeline-card-content-title {
+  font-size: 1.8em; /* Adjust as needed */
+  font-weight: bold; /* Adjust as needed */
+  color: #333; /* Adjust as needed */
+}
+
+.timeline-card-content-company {
+  font-size: 1.5em; /* Adjust as needed */
+  font-weight: normal; /* Adjust as needed */
+  color: #666; /* Adjust as needed */
+}
+
+.timeline-card-content-description {
+  font-size: 1.3em; /* Adjust as needed */
+  color: #333; /* Adjust as needed */
+  line-height: 1.5; /* Adjust as needed */
+}
+
+@media screen and (max-width: 900px) {
+  .timeline-card {
+    height: 100%;
+    width: 80%;
+  }
+}
