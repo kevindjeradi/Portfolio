@@ -14,7 +14,7 @@ function CustomAppBar() {
                 </Link>
                 <Typography variant="h6" style={{ flexGrow: 1 }}></Typography>
                 <Link to="/Contact" style={{ textDecoration: 'none', color: '#B1B1B1' }}>
-                    <Button color="inherit" style={{ color: '#B1B1B1', textTransform: 'none' }}>
+                    <Button className="hoverable-btn" color="inherit" style={{ color: '#B1B1B1', textTransform: 'none' }}>
                         Contact
                     </Button>
                 </Link>

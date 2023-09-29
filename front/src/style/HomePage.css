@@ -1,11 +1,109 @@
+@font-face {
+  font-family: 'streetFighter'; /* Define a name for your font */
+  src: url('../fonts/Street-Fighter-Font/Act_Of_Rejection.ttf'); /* Point to the font file in your project */
+  font-weight: normal;
+  font-style: normal;
+}
+
 body, html {
     background-color: white;
+}
+.hoverable-btn:hover {
+  font-family: 'streetFighter', Arial, sans-serif;
+}
+
+.firstGrid {
+  position: relative;
+  background-size: 100% auto; /* This will make the background image take the full width of the container */
+  background-position: center center; /* This will center the background image vertically */
+  background-repeat: no-repeat; /* This will prevent the background image from repeating */
+}
+@keyframes slideInFromLeft {
+  0% {
+    left: -100vw; /* Start from outside of the viewport */
+  }
+  100% {
+    left: 0; /* End at the normal position */
+  }
+}
+
+.gif-overlay {
+  position: absolute;
+  top: 0;
+  left: 0; /* Start from the left of the screen */
+  width: 100vw; /* Full width of the viewport */
+  height: 100%; /* Full height of the container */
+  background-size: contain;
+  background-repeat: no-repeat; /* This will prevent the background image from repeating */
+  z-index: 10; /* High z-index to overlay on top of other elements */
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.white-background {
+  background: white !important;
 }
 
 .home_gif {
   width: 60px;
   height: 60px;
   mix-blend-mode: multiply;
+}
+
+@keyframes fadeFromBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(150px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.second-gif-container {
+  position: fixed;
+  bottom: 190px; /* Adjust as needed to ensure the gif is fully visible */
+  left: 41%; /* Centering the container horizontally */
+  transform: translateX(-41%); /* Adjusting the exact center */
+  width: 150px;
+  height: 150px;
+  z-index: 1000; /* Ensure it is above other elements */
+  animation: fadeFromBottom 2s ease 0s 1 normal forwards;
+}
+
+@keyframes slideUpItem {
+  0% {
+    transform: translateY(100%); /* Start from below the viewport */
+  }
+  100% {
+    transform: translateY(0); /* End at the normal position */
+  }
+}
+
+.slide-up-item {
+  animation: slideUpItem 0.5s ease-out forwards;
+  animation-fill-mode: backwards; /* This will apply the initial styles of the animation before it starts */
+}
+
+@keyframes fadeFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px) translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+}
+.third-gif-container {
+  position: fixed;
+  left: 0;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for exact center */
+  width: 150px;
+  height: 150px;
+  z-index: 1000; /* Ensure it is above other elements */
+  animation: fadeFromLeft 2s ease 0s 1 normal forwards;
 }
 
 .grid-item-holder {
@@ -52,23 +150,52 @@ body, html {
     fill: #97B5C7;
 }
 
+.hoverable-title {
+  transition: all 0.5s ease;
+}
+
+.hoverable-grid-item:hover .hoverable-title {
+  font-family: 'streetFighter', Arial, sans-serif;
+  font-weight: bold;
+}
+
 .inner-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: slideDownInnerContent 1s ease-out forwards;
 }
 
 .inner-title {
-    margin-top: 10px;
-    color: #AAAAAA;
-    font-size: 30px;
-    font-weight: normal;
-    transition: font-weight 0.5s, color 0.5s;
+    color: #B1B1B1;
+    transition: font-weight 0.5s, color 0.5s !important;
+}
+
+div .inner-title {
+  font-family: 'streetFighter', Arial, sans-serif;
+}
+
+div .menu-card-inner-title:hover {
+  font-family: 'streetFighter', Arial, sans-serif;
+}
+
+@keyframes slideDownSpecificInnerContent {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.specific-inner-content {
+  position: relative; /* or absolute, based on your layout needs */
+  animation: slideDownSpecificInnerContent 1s ease-out forwards;
 }
 
 .inner-paper svg {
-    fill: #AAAAAA;
+    fill: #B1B1B1;
     transition: fill 0.5s;
 }
 
@@ -110,7 +237,28 @@ body, html {
     color: #B1B1B1;
     animation: animate 4s ease-in-out infinite;
   }
+
+  @keyframes textSlide {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
   
+    50% {
+      opacity: 1;
+      transform: translateX(380px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .text-center-on-small {
+    animation: textSlide 3s ease 3.5s 1 normal forwards;
+}
+
   @keyframes animate {
     0%,
     100% {

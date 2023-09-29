@@ -2,7 +2,7 @@
 .timeline-card {
   height: 100%;
   width: 80%;
-  border-radius: 10px;
+  border-radius: 1.25rem;
   overflow: hidden;
   cursor: pointer;
   position: relative;
