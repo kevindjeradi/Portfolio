@@ -30,7 +30,7 @@ const TimelineItem = (props) => {
     <div
       id={id}
       className={`entry ${children === "" ? "timeline-item--no-children" : ""}`}
-      style={{ iconColor  }}
+      style={{ color: iconColor, margin:'50px'  }}
     >
       <VisibilitySensor
         {...visibilitySensorProps}

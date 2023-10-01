@@ -1,4 +1,29 @@
 /* TimelineCard.css */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.expand-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: white; /* Or any other color that suits your design */
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
 .timeline-card {
   height: 100%;
   width: 80%;
@@ -58,19 +83,19 @@
 }
 
 .timeline-card-content-title {
-  font-size: 1.8em; /* Adjust as needed */
+  font-size: 1.7em; /* Adjust as needed */
   font-weight: bold; /* Adjust as needed */
   color: #333; /* Adjust as needed */
 }
 
 .timeline-card-content-company {
-  font-size: 1.5em; /* Adjust as needed */
+  font-size: 1.3em; /* Adjust as needed */
   font-weight: normal; /* Adjust as needed */
   color: #666; /* Adjust as needed */
 }
 
 .timeline-card-content-description {
-  font-size: 1.3em; /* Adjust as needed */
+  font-size: 1.1em; /* Adjust as needed */
   color: #333; /* Adjust as needed */
   line-height: 1.5; /* Adjust as needed */
 }

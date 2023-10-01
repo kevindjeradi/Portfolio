@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddIcon from '@mui/icons-material/TouchAppOutlined';
 import "style/TimelineCard.css";
 
 const TimelineCard = ({ image, title, company, description }) => {
@@ -28,6 +29,7 @@ const TimelineCard = ({ image, title, company, description }) => {
   return (
     <div className={`timeline-card ${expanded ? "expanded" : ""}`} onClick={handleCardClick}>
       <div className="timeline-card-image" style={{ backgroundImage: `url(${image})` }}></div>
+      {!expanded && <AddIcon className="expand-icon" />}
       <div className="timeline-card-content">
         <div className="timeline-card-content-header">
           <p className="timeline-card-content-title">{title}</p>

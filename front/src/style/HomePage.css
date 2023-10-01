@@ -10,6 +10,7 @@ body, html {
 }
 .hoverable-btn:hover {
   font-family: 'streetFighter', Arial, sans-serif;
+  color: #97B5C7 !important;
 }
 
 .firstGrid {
@@ -23,20 +24,36 @@ body, html {
     left: -100vw; /* Start from outside of the viewport */
   }
   100% {
-    left: 0; /* End at the normal position */
+    left: 30%; /* End at the normal position */
   }
 }
 
-.gif-overlay {
+.ryu-overlay {
   position: absolute;
-  top: 0;
-  left: 0; /* Start from the left of the screen */
-  width: 100vw; /* Full width of the viewport */
-  height: 100%; /* Full height of the container */
+  top: 50;
+  left: 30%; /* Start from the left of the screen */
+  width: 70vw; /* Full width of the viewport */
+  height: 60vh; /* Full height of the container */
   background-size: contain;
   background-repeat: no-repeat; /* This will prevent the background image from repeating */
   z-index: 10; /* High z-index to overlay on top of other elements */
   animation: slideInFromLeft 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease 0s 1 normal forwards;
 }
 
 .white-background {
@@ -60,15 +77,80 @@ body, html {
 		transform: translateY(0);
 	}
 }
-.second-gif-container {
+.akuma-container {
   position: fixed;
-  bottom: 190px; /* Adjust as needed to ensure the gif is fully visible */
-  left: 41%; /* Centering the container horizontally */
-  transform: translateX(-41%); /* Adjusting the exact center */
-  width: 150px;
-  height: 150px;
-  z-index: 1000; /* Ensure it is above other elements */
+  bottom: 0; /* Adjust as needed to ensure the gif is fully visible */
+  left: 0%;
+  width: 100vw;
+  transform: translateX(-38%); /* Adjusting the exact center */
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat; /* This will prevent the background image from repeating */
+  background-position: center center;
+  z-index: 10; /* Ensure it is above other elements */
   animation: fadeFromBottom 2s ease 0s 1 normal forwards;
+}
+
+@keyframes BounceUp {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 0;
+		transform: translateY(200px);
+	}
+
+	38% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	55% {
+		animation-timing-function: ease-in;
+		transform: translateY(65px);
+	}
+
+	72% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	81% {
+		animation-timing-function: ease-in;
+		transform: translateY(28px);
+	}
+
+	90% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	95% {
+		animation-timing-function: ease-in;
+		transform: translateY(8px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+}
+
+.bounce-up-item {
+  animation: BounceUp 2s ease 0s 1 normal forwards;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  background-color: #B1B1B1;
+  animation: blink 1s step-end infinite;
 }
 
 @keyframes slideUpItem {
@@ -94,16 +176,6 @@ body, html {
     opacity: 1;
     transform: translateX(0) translateY(-50%);
   }
-}
-.third-gif-container {
-  position: fixed;
-  left: 0;
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Adjust for exact center */
-  width: 150px;
-  height: 150px;
-  z-index: 1000; /* Ensure it is above other elements */
-  animation: fadeFromLeft 2s ease 0s 1 normal forwards;
 }
 
 .grid-item-holder {
@@ -155,6 +227,7 @@ body, html {
 }
 
 .hoverable-grid-item:hover .hoverable-title {
+  color: #97B5C7 !important;
   font-family: 'streetFighter', Arial, sans-serif;
   font-weight: bold;
 }
@@ -164,7 +237,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: slideDownInnerContent 1s ease-out forwards;
+    /* animation: slideDownInnerContent 1s ease-out forwards; */
 }
 
 .inner-title {
@@ -180,18 +253,20 @@ div .menu-card-inner-title:hover {
   font-family: 'streetFighter', Arial, sans-serif;
 }
 
-@keyframes slideDownSpecificInnerContent {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+@keyframes ScaleInRight {
+	0% {
+		transform: scale(0);
+		transform-origin: 100% 100%;
+	}
+
+	100% {
+		transform: scale(1);
+		transform-origin: 100% 100%;
+	}
 }
 
-.specific-inner-content {
-  position: relative; /* or absolute, based on your layout needs */
-  animation: slideDownSpecificInnerContent 1s ease-out forwards;
+.scale-in-right {
+  animation: ScaleInRight 1s ease 0s 1 normal forwards;
 }
 
 .inner-paper svg {
@@ -255,9 +330,9 @@ div .menu-card-inner-title:hover {
     }
   }
 
-  .text-center-on-small {
+  /* .text-center-on-small {
     animation: textSlide 3s ease 3.5s 1 normal forwards;
-}
+} */
 
   @keyframes animate {
     0%,
@@ -290,13 +365,6 @@ div .menu-card-inner-title:hover {
     }
   }
 
-  @media (max-width: 600px) {
-    .inner-paper {
-        width: calc(0.5 * 0.6 * (100vh - 64px));  /* Adjusted width for mobile */
-        height: calc(0.5 * 0.6 * (100vh - 64px)); /* Adjusted height for mobile */
-    }
-  }
-  
   @media (max-width: 900px) {
     .firstGrid {
       padding: 40px;
@@ -308,5 +376,16 @@ div .menu-card-inner-title:hover {
         align-items: center;
         justify-content: center;
         text-align: center;
+    }
+
+    .ryu-overlay {
+      background-position: 60%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .inner-paper {
+        width: calc(0.5 * 0.6 * (100vh - 64px));  /* Adjusted width for mobile */
+        height: calc(0.5 * 0.6 * (100vh - 64px)); /* Adjusted height for mobile */
     }
   }
