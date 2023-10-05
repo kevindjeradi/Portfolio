@@ -115,7 +115,12 @@ function ProjectModal({ open, handleClose, item }) {
                                 srcSet={`${item.img}?w=350&fit=crop&auto=format&dpr=2 2x`}
                                 alt={item.title}
                                 loading="lazy"
-                                style={{ width: '100%', marginBottom: '20px' }}
+                                style={{
+                                    width: '100%',
+                                    maxHeight: '450px',
+                                    objectFit: 'contain',
+                                    marginBottom: '20px'
+                                }}
                             />
                             <div style={childElementMargin}>
                                 <ProjectDescription item={item} />
@@ -128,7 +133,7 @@ function ProjectModal({ open, handleClose, item }) {
                                         linkColor="black"
                                         hoverBackgroundColor="black"
                                         hoverColor="white"
-                                        href="/"
+                                        href={item.github}
                                     />
                                 </div>
                                 <div style={tagsContainerStyle}>

@@ -7,6 +7,11 @@ import { v4 as uuidv4 } from 'uuid';
 import useMouseFocus from 'utils/UseMouseFocus';
 import 'style/ProjectList.css';
 import ProjectModal from 'components/Projects/ProjectModal';
+import portfolioHome from 'images/captures/portfolio/Portfolio.png';
+import mobileShopHome from 'images/captures/mobile-shop/home.png';
+import budgetManagerHome from 'images/captures/budget-manager/home.png';
+import redditechHome from 'images/captures/redditech/home.png';
+
 
 export default function ProjectsList() {
   const [activeTags, setActiveTags] = React.useState([]);
@@ -132,6 +137,10 @@ export default function ProjectsList() {
               srcSet={`${item.img}?w=350&fit=crop&auto=format&dpr=2 2x`}
               alt={item.title}
               loading="lazy"
+              style={{
+                objectFit: 'contain',
+                maxHeight: '300px'
+              }}
             />
             <div
               style={{
@@ -160,39 +169,45 @@ export default function ProjectsList() {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    img: portfolioHome,
     title: 'Hakedj.be',
     stack: ['React', 'Mui', 'NodeJs', 'MongoDb'],
     tags: ['Personnel', 'Front', 'Back'],
+    github: 'https://github.com/kevindjeradi/Portfolio',
   },
   {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Projet 2',
-    stack: ['NodeJs', 'MongoDb', 'Express'],
-    tags: ['Personnel', 'Back'],
+    img: budgetManagerHome,
+    title: 'Budget Manager',
+    stack: ['React', 'NodeJs', 'MongoDb', 'HTML', 'CSS', 'Javascript'],
+    tags: ['Front', 'Back', 'Personnel'],
+    github: 'https://github.com/kevindjeradi/BudgetManager',
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Projet 3',
-    stack: ['HTML', 'CSS', 'Javascript'],
-    tags: ['Front'],
+    img: mobileShopHome,
+    title: 'Mobile Shop',
+    stack: ['Flutter', 'NodeJs', 'Express', 'MongoDb'],
+    tags: ['Personnel', 'Front', 'Back', 'Mobile'],
+    github: '/',
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Projet 4',
-    stack: ['Laravel', 'PostgreSQL'],
-    tags: ['Back', 'Professionnel'],
+    img: redditechHome,
+    title: 'Redditech',
+    stack: ['Flutter'],
+    tags: ['Front', 'Personnel', 'Mobile'],
+    github: '/',
   },
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
     title: 'Projet 5',
     stack: ['Flutter', 'Firebase'],
     tags: ['Front', 'Mobile'],
+    github: '/',
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
     title: 'Projet 6',
     stack: ['Flutter', 'NodeJs', 'Express', 'Firebase'],
     tags: ['Front', 'Back', 'Mobile'],
+    github: '/',
   },
 ];

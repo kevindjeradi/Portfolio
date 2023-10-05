@@ -18,10 +18,16 @@ function ProjectDescription({ item }) {
                 </div>
             );
 
-        case 'Projet 2':
+        case 'Mobile Shop':
             return (
                 <div>
-                    <p>This is the description for Projet 2.</p>
+                    <p>Application mobile de mise en vente de produits construite avec Flutter et NodeJS.</p>
+                    <p>Cette application permet de :</p>
+                    <p>Créer son compte / Se connecter</p>
+                    <p>Ajouter des articles à son panier</p>
+                    <p>Voir et ajouter du solde à son compte</p>
+                    <p>Scanner le code barre d'un produit afin d'afficher la fiche produit associée et de l'ajouter à son panier</p>
+                    <p>Ajouter et visualiser des cartes bancaire</p>
                 </div>
             );
 
