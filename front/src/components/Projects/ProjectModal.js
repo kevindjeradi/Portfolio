@@ -7,9 +7,20 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import Backdrop from '@mui/material/Backdrop';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import ProjectDescription from 'components/Projects/ProjectDescription';
 import StackToImage from 'components/StackToImage';
 import SocialButton from 'components/SocialButton';
+
+const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+};
 
 const childElementMargin = {
     marginBottom: '30px',
@@ -110,18 +121,24 @@ function ProjectModal({ open, handleClose, item }) {
                             <div style={childElementMargin}>
                                 <StackToImage stack={item.stack} />
                             </div>
-                            <img
-                                src={`${item.img}?w=350&fit=crop&auto=format`}
-                                srcSet={`${item.img}?w=350&fit=crop&auto=format&dpr=2 2x`}
-                                alt={item.title}
-                                loading="lazy"
-                                style={{
-                                    width: '100%',
-                                    maxHeight: '450px',
-                                    objectFit: 'contain',
-                                    marginBottom: '20px'
-                                }}
-                            />
+                            <Slider {...settings}>
+                                {item.imgs.map((img, index) => (
+                                    <div key={index}>
+                                        <img
+                                            src={`${img}?w=350&fit=crop&auto=format`}
+                                            srcSet={`${img}?w=350&fit=crop&auto=format&dpr=2 2x`}
+                                            alt={item.title}
+                                            loading="lazy"
+                                            style={{
+                                                width: '100%',
+                                                maxHeight: '450px',
+                                                objectFit: 'contain',
+                                                marginBottom: '20px'
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </Slider>
                             <div style={childElementMargin}>
                                 <ProjectDescription item={item} />
                             </div>
