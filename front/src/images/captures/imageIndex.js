@@ -2,7 +2,12 @@
 
 import portfolioHome from 'images/captures/portfolio/Portfolio.png';
 
-import budgetManagerHome from 'images/captures/budget-manager/home.png';
+import budgetManagerConnexion from 'images/captures/budget-manager/connexion.png';
+import budgetManagerDepenses from 'images/captures/budget-manager/depenses.png';
+import budgetManagerEntrees from 'images/captures/budget-manager/entrees.png';
+import budgetManagerGestion from 'images/captures/budget-manager/gestion.png';
+import budgetManagerinscription from 'images/captures/budget-manager/inscription.png';
+import budgetManagerResume from 'images/captures/budget-manager/resume.png';
 
 import connectHome from 'images/captures/connect-mobile/accueil.png';
 import connectPublicHome from 'images/captures/connect-mobile/accueil-public.png';
@@ -80,7 +85,12 @@ export const imagesList = {
     ],
 
     budgetManager : [
-        budgetManagerHome
+        budgetManagerConnexion,
+        budgetManagerDepenses,
+        budgetManagerEntrees,
+        budgetManagerGestion,
+        budgetManagerinscription,
+        budgetManagerResume
     ],
 
     portfolio : [
