@@ -3,6 +3,7 @@ import Projects from 'views/Projects';
 import HomePage from 'views/HomePage';
 import VideoPage from 'views/VideoPage';
 import Experiences from 'views/Experiences';
+import Bio from 'views/Bio';
 
 function App() {
       return (
@@ -10,6 +11,8 @@ function App() {
                   <Routes>
                         <Route
                               path="/" element={<HomePage />}/>
+                        <Route
+                              path="/Bio" element={<Bio />}/>
                         <Route
                               path="/projects" element={<Projects />}/>
                         <Route
