@@ -1,31 +1,26 @@
 import React from 'react';
-import { Container, Typography, Avatar, Grid, Chip, Link, Paper } from '@mui/material';
+import { Container, Typography, Avatar, Grid, Chip, Link, Paper, Box } from '@mui/material';
 
 const BioPage = () => {
     return (
         <Container maxWidth="md">
-            <Grid container spacing={3} alignItems="center" justifyContent="center" style={{ marginTop: '20px' }}>
-                <Grid item xs={12} sm={6}>
-                    <Avatar
-                        alt="Kevin Djeradi"
-                        src="path_to_your_image.jpg"
-                        style={{ width: '150px', height: '150px' }}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Typography variant="h4">Kevin Hamza Djeradi</Typography>
-                    <Typography variant="subtitle1">Fullstack Developer</Typography>
-                </Grid>
-            </Grid>
+            <Box style={{ textAlign: 'center', margin: '20px 0' }}>
+                <Avatar
+                    alt="Kevin Djeradi"
+                    src="path_to_your_image.jpg"
+                    style={{ width: '150px', height: '150px', margin: 'auto' }}
+                />
+                <Typography variant="h4" style={{ marginTop: '15px' }}>Kevin Hamza Djeradi</Typography>
+                <Typography variant="subtitle1">Développeur Fullstack</Typography>
+            </Box>
 
-            <Typography variant="h6" style={{ marginTop: '20px' }}>About Me</Typography>
+            <Typography variant="h6" style={{ marginTop: '20px' }}>À Propos</Typography>
             <Typography variant="body1">
-                Passionate flutter and React developer with a strong foundation in full-stack mobile and web development. Currently in my 5th year, I'm engaged in an internship with onepoint, where I continue to expand my skills and contribute to impactful projects.
+                Développeur Flutter et React passionné, en 5ème année de mon parcours professionnel. Actuellement en alternance chez onePoint, je me spécialise dans la création d'applications mobiles et web.
             </Typography>
 
-            <Typography variant="h6" style={{ marginTop: '20px' }}>Skills</Typography>
-            <Grid container spacing={1}>
-                {/* List of skills */}
+            <Typography variant="h6" style={{ marginTop: '20px' }}>Compétences</Typography>
+            <Grid container spacing={1} style={{ marginBottom: '20px' }}>
                 {['React.js', 'Material-UI', 'Node.js', 'Firebase', 'HTML5', 'CSS3', 'JavaScript'].map(skill => (
                     <Grid item key={skill}>
                         <Chip label={skill} />
@@ -33,14 +28,21 @@ const BioPage = () => {
                 ))}
             </Grid>
 
-            <Typography variant="h6" style={{ marginTop: '20px' }}>Interests</Typography>
-            <Typography variant="body1">
-                Outside of coding, I enjoy reading, especially fantasy light novels and mangas. This passion fuels my creativity and problem-solving skills in the tech world.
+            <Typography variant="h6">Intérêts</Typography>
+            <Typography variant="body1" style={{ marginBottom: '20px' }}>
+                Quand je ne code pas, je me plonge dans la lecture de romans de fantasy et l'exploration du monde des mangas. Mon intérêt pour ces narrations sert non seulement de débouché créatif mais renforce également mon approche de résolution de problèmes dans le domaine technologique.
             </Typography>
 
-            <Paper elevation={3} style={{ marginTop: '20px', padding: '20px' }}>
+            <Paper elevation={3} style={{ padding: '20px' }}>
+                <Typography variant="h6">Contactez-Moi</Typography>
                 <Typography variant="body1">
-                    Feel free to connect with me on <Link href="https://www.linkedin.com/in/kevin-djeradi-012067105/" target="_blank">LinkedIn</Link>.
+                    N'hésitez pas à me contacter pour des collaborations ou pour établir un contact professionnel.
+                </Typography>
+                <Typography variant="body1" style={{ marginTop: '10px' }}>
+                    Email: <Link href="mailto:votre.email@example.com">votre.email@example.com</Link> 
+                </Typography>
+                <Typography variant="body1" style={{ marginTop: '5px' }}>
+                    LinkedIn: <Link href="https://www.linkedin.com/in/kevin-djeradi-012067105/" target="_blank">Kevin Djeradi</Link>
                 </Typography>
             </Paper>
         </Container>
