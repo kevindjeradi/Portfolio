@@ -1,13 +1,20 @@
 import React from 'react';
-import { Container, Typography, Avatar, Grid, Chip, Link, Paper, Box, useMediaQuery } from '@mui/material';
+import { Container, Typography, Avatar, Grid, Chip, Link, Paper, Box, useMediaQuery, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { teal, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
+import SchoolIcon from '@mui/icons-material/School';
 
 const StyledPaper = styled(Paper)({
     backgroundColor: grey[100],
     padding: '20px',
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+});
+
+const StyledCard = styled(Card)({
+    marginBottom: '10px',
+    backgroundColor: grey[50],
+    borderRadius: '8px',
 });
 
 const BioPage = () => {
@@ -34,11 +41,63 @@ const BioPage = () => {
 
             <StyledPaper style={{ marginTop: '20px' }}>
                 <Typography variant="h5" style={{ color: teal[700], marginBottom: '15px' }}>Diplômes et Formations</Typography>
-                <Typography variant="body1">
-                    - Responsable de projet web et mobile, Epitech Paris (Depuis septembre 2021) <br/>
-                    - Expert en technologies de l'information, Epitech Paris (Septembre 2014 - Août 2016) <br/>
-                    - Baccalauréat Économique et Social, Lycée Pasteur, Neuilly-Sur-Seine (2013 - 2014)
-                </Typography>
+                <List>
+                    <StyledCard>
+                        <CardContent>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <SchoolIcon color="primary" />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Architecte de Systèmes d’Information, Epitech Paris"
+                                    secondary="En cours, 5ème année"
+                                />
+                            </ListItem>
+                        </CardContent>
+                    </StyledCard>
+                
+                    <StyledCard>
+                        <CardContent>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <SchoolIcon color="primary" />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Responsable de projet web et mobile, Epitech Paris"
+                                    secondary="Depuis septembre 2021"
+                                />
+                            </ListItem>
+                        </CardContent>
+                    </StyledCard>
+                
+                    <StyledCard>
+                        <CardContent>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <SchoolIcon color="primary" />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Expert en technologies de l'information, Epitech Paris"
+                                    secondary="Septembre 2014 - Août 2016"
+                                />
+                            </ListItem>
+                        </CardContent>
+                    </StyledCard>
+                
+                    <StyledCard>
+                        <CardContent>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <SchoolIcon color="primary" />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Baccalauréat Économique et Social, Lycée Pasteur, Neuilly-Sur-Seine"
+                                    secondary="2013 - 2014"
+                                />
+                            </ListItem>
+                        </CardContent>
+                    </StyledCard>
+                </List>
             </StyledPaper>
 
             <StyledPaper style={{ marginTop: '20px' }}>
