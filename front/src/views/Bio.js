@@ -28,14 +28,23 @@ const BioPage = () => {
             <StyledPaper>
                 <Typography variant="h5" style={{ color: teal[700], marginBottom: '15px' }}>À Propos</Typography>
                 <Typography variant="body1">
-                    Passionné de développement Flutter et React avec 5 ans d'expérience, actuellement en alternance chez onePoint. Spécialisé dans la création d'applications mobiles et web, avec un fort accent sur l'expérience utilisateur et la performance.
+                    Développeur Fullstack web et mobile avec nottamenet 3 ans d'expériences en flutter, actuellement en alternance chez onePoint. Spécialisé dans la création d'applications mobiles et web, j'accorde une grande importance à l'expérience utilisateur et la performance. Mon parcours à Epitech m'a permis d'acquérir des compétences solides en programmation et de développer une approche pragmatique des projets technologiques.
+                </Typography>
+            </StyledPaper>
+
+            <StyledPaper style={{ marginTop: '20px' }}>
+                <Typography variant="h5" style={{ color: teal[700], marginBottom: '15px' }}>Diplômes et Formations</Typography>
+                <Typography variant="body1">
+                    - Responsable de projet web et mobile, Epitech Paris (Depuis septembre 2021) <br/>
+                    - Expert en technologies de l'information, Epitech Paris (Septembre 2014 - Août 2016) <br/>
+                    - Baccalauréat Économique et Social, Lycée Pasteur, Neuilly-Sur-Seine (2013 - 2014)
                 </Typography>
             </StyledPaper>
 
             <StyledPaper style={{ marginTop: '20px' }}>
                 <Typography variant="h5" style={{ color: teal[700], marginBottom: '15px' }}>Compétences</Typography>
                 <Grid container spacing={2}>
-                    {['React.js', 'Flutter', 'Material-UI', 'Node.js', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git'].map(skill => (
+                    {['Flutter', 'React.js', 'Node.js', 'Laravel', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git', 'C', 'PHP', 'MYSQL', 'Bootstrap'].map(skill => (
                         <Grid item key={skill}>
                             <Chip label={skill} variant="outlined" color="primary" />
                         </Grid>
