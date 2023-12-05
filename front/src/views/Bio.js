@@ -101,7 +101,7 @@ const BioPage = () => {
                                     <SchoolIcon color="primary" />
                                 </ListItemIcon>
                                 <ListItemText
-                                    primary="Architecte de Systèmes d’Information, Epitech Paris"
+                                    primary="Architecte de Systèmes d'Information, Epitech Paris"
                                     secondary="En cours, 5ème année - 2024"
                                 />
                             </ListItem>
