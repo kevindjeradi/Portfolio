@@ -7,6 +7,10 @@ import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import SchoolIcon from '@mui/icons-material/School';
 import { motion } from 'framer-motion';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import bioPicture from 'images/bio_picture.PNG'
 import comicPreview from 'images/bio/comic_preview.png'
 
 const StyledPaper = styled(Paper)({
@@ -63,6 +67,38 @@ const ComicBookBioTeaser = () => {
     );
 }
 
+const ContactItem = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(1),
+    backgroundColor: grey[100],
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: 'inset 0 0 8px rgba(0, 0, 0, 0.1)',
+    '&:hover': {
+        backgroundColor: grey[200],
+        boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.15)',
+    },
+}));
+
+const ContactIcon = styled(Box)({
+    marginRight: '10px',
+    display: 'flex',
+    alignItems: 'center',
+});
+
+const ContactText = styled(Typography)({
+    color: blueGrey[700],
+    fontWeight: '500',
+});
+
+const ContactRow = styled(Box)({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: '10px',
+    padding: '10px 0',
+});
+
 const BioPage = () => {
     const matches = useMediaQuery('(min-width:600px)');
 
@@ -71,17 +107,54 @@ const BioPage = () => {
             <Box component={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} style={{ textAlign: 'center', margin: '40px 0', padding: '20px', borderRadius: '20px', backgroundColor: blueGrey[50] }}>
                 <Avatar
                     alt="Kevin Djeradi"
-                    src="path_to_your_image.jpg"
+                    src={bioPicture}
                     style={{ width: matches ? '200px' : '150px', height: matches ? '200px' : '150px', margin: 'auto', border: `4px solid ${blueGrey[300]}` }}
                 />
                 <Typography variant="h3" style={{ marginTop: '20px', color: blueGrey[900] }}>Kevin Hamza Djeradi</Typography>
                 <Typography variant="subtitle1" style={{ color: blueGrey[700] }}>Développeur Fullstack</Typography>
+
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Link href="https://github.com/kevindjeradi" target="_blank" style={{ textDecoration: 'none' }}>
+                            <ContactItem center={true}>
+                                <ContactIcon>
+                                    <GitHubIcon color="primary" />
+                                </ContactIcon>
+                                <ContactText>
+                                    kevindjeradi
+                                </ContactText>
+                            </ContactItem>
+                    </Link>
+                </div>
+                
+                <ContactRow>
+                    <Link href="mailto:kevindjeradi@hotmail.fr" style={{ textDecoration: 'none' }}>
+                        <ContactItem>
+                            <ContactIcon>
+                                <MailOutlineIcon color="primary" />
+                            </ContactIcon>
+                            <ContactText>
+                                kevindjeradi@hotmail.fr
+                            </ContactText>
+                        </ContactItem>
+                    </Link>
+
+                    <Link href="https://www.linkedin.com/in/kevin-djeradi-012067105/" target="_blank" style={{ textDecoration: 'none' }}>
+                        <ContactItem>
+                            <ContactIcon>
+                                <LinkedInIcon color="primary" />
+                            </ContactIcon>
+                            <ContactText>
+                                Kevin Djeradi
+                            </ContactText>
+                        </ContactItem>
+                    </Link>
+                </ContactRow>
             </Box>
 
             <StyledPaper>
                 <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>À Propos</Typography>
                 <Typography variant="body1">
-                    Développeur Fullstack web et mobile, actuellement en alternance chez onePoint depuis bientôt 3 ans.
+                    Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans.
                 </Typography>
                 <Typography variant="body1">
                     Spécialisé dans la création d'applications mobiles et web, j'accorde une grande importance à l'expérience utilisateur et la performance.
@@ -168,7 +241,13 @@ const BioPage = () => {
             <StyledPaper style={{ marginTop: '20px' }}>
                 <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Intérêts Personnels</Typography>
                 <Typography variant="body1">
-                    Amateur de lecture, innovation technologique et voyages, ces passions alimentent ma créativité et mon approche innovante dans le développement technologique.
+                    Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel.
+                </Typography>
+                <Typography variant="body1">
+                    En dehors du codage, je suis un fervent lecteur de light novels fantastiques et de mangas, et j'aime me détendre en regardant des séries, films ou en suivant des streams sur Twitch. Le sport joue également un rôle clé dans ma vie, m'aidant à décompresser et à gérer le stress.
+                </Typography>
+                <Typography variant="body1">
+                    Ouvert à de nouvelles opportunités dans le développement, je suis toujours disponible pour discuter de projets passionnants ou échanger sur nos lectures préférées.
                 </Typography>
             </StyledPaper>
 
@@ -176,12 +255,6 @@ const BioPage = () => {
                 <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Contactez-Moi</Typography>
                 <Typography variant="body1">
                     Pour des collaborations, des projets ou des opportunités professionnelles, n'hésitez pas à me contacter.
-                </Typography>
-                <Typography variant="body1" style={{ marginTop: '10px' }}>
-                    Email: <Link href="mailto:votre.email@example.com">votre.email@example.com</Link>
-                </Typography>
-                <Typography variant="body1" style={{ marginTop: '5px' }}>
-                    LinkedIn: <Link href="https://www.linkedin.com/in/kevin-djeradi-012067105/" target="_blank">Kevin Djeradi</Link>
                 </Typography>
             </StyledPaper>
         </Container>
