@@ -66,6 +66,12 @@ body, html {
   mix-blend-mode: multiply;
 }
 
+.bio_gif {
+  width: 40px;
+  height: 40px;
+  mix-blend-mode: multiply;
+}
+
 @keyframes fadeFromBottom {
 	0% {
 		opacity: 0;

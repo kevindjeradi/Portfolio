@@ -6,13 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import 'style/Bio.css';
-import SchoolIcon from '@mui/icons-material/School';
 import { motion } from 'framer-motion';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import bioPicture from 'images/bio_picture.PNG'
 import comicPreview from 'images/bio/comic_preview.png'
+import school from 'images/icones/school.gif';
+import graduation from 'images/icones/graduation-cap.gif';
+import linkedin from 'images/icones/linkedin.gif';
+import github from 'images/icones/github.gif';
+import mail from 'images/icones/mail.gif';
 
 const StyledPaper = styled(Paper)({
     backgroundColor: grey[100],
@@ -100,6 +101,10 @@ const ContactRow = styled(Box)({
     padding: '10px 0',
 });
 
+const StyledListItemIcon = styled(ListItemIcon)({
+    marginRight: '20px',
+  });
+
 const BioPage = () => {
     const matches = useMediaQuery('(min-width:600px)');
 
@@ -118,7 +123,7 @@ const BioPage = () => {
                     <Link href="https://github.com/kevindjeradi" target="_blank" style={{ textDecoration: 'none' }}>
                             <ContactItem center={true}>
                                 <ContactIcon>
-                                    <GitHubIcon color="primary" />
+                                    <img src={github} className="bio_gif" alt="graduation" />
                                 </ContactIcon>
                                 <ContactText>
                                     kevindjeradi
@@ -131,7 +136,7 @@ const BioPage = () => {
                     <Link href="mailto:kevindjeradi@hotmail.fr" style={{ textDecoration: 'none' }}>
                         <ContactItem>
                             <ContactIcon>
-                                <MailOutlineIcon color="primary" />
+                                <img src={mail} className="bio_gif" alt="graduation" />
                             </ContactIcon>
                             <ContactText>
                                 kevindjeradi@hotmail.fr
@@ -142,7 +147,7 @@ const BioPage = () => {
                     <Link href="https://www.linkedin.com/in/kevin-djeradi-012067105/" target="_blank" style={{ textDecoration: 'none' }}>
                         <ContactItem>
                             <ContactIcon>
-                                <LinkedInIcon color="primary" />
+                                <img src={linkedin} className="bio_gif" alt="graduation" />
                             </ContactIcon>
                             <ContactText>
                                 Kevin Djeradi
@@ -171,9 +176,9 @@ const BioPage = () => {
                     <StyledCard>
                         <CardContent>
                             <ListItem>
-                                <ListItemIcon>
-                                    <SchoolIcon color="primary" />
-                                </ListItemIcon>
+                                <StyledListItemIcon>
+                                    <img src={graduation} className="home_gif" alt="graduation" />
+                                </StyledListItemIcon>
                                 <ListItemText
                                     primary="Architecte de Systèmes d'Information, Epitech Paris"
                                     secondary="En cours, 5ème année - 2024"
@@ -185,9 +190,9 @@ const BioPage = () => {
                     <StyledCard>
                         <CardContent>
                             <ListItem>
-                                <ListItemIcon>
-                                    <SchoolIcon color="primary" />
-                                </ListItemIcon>
+                                <StyledListItemIcon>
+                                    <img src={graduation} className="home_gif" alt="graduation" />
+                                </StyledListItemIcon>
                                 <ListItemText
                                     primary="Responsable de projet web et mobile, Epitech Paris"
                                     secondary="2022"
@@ -201,9 +206,9 @@ const BioPage = () => {
                     <StyledCard>
                         <CardContent>
                             <ListItem>
-                                <ListItemIcon>
-                                    <SchoolIcon color="primary" />
-                                </ListItemIcon>
+                                <StyledListItemIcon>
+                                    <img src={school} className="home_gif" alt="school" />
+                                </StyledListItemIcon>
                                 <ListItemText
                                     primary="Expert en technologies de l'information, Epitech Paris"
                                     secondary="Septembre 2014 - Août 2016"
@@ -215,9 +220,9 @@ const BioPage = () => {
                     <StyledCard>
                         <CardContent>
                             <ListItem>
-                                <ListItemIcon>
-                                    <SchoolIcon color="primary" />
-                                </ListItemIcon>
+                                <StyledListItemIcon>
+                                    <img src={school} className="home_gif" alt="school" />
+                            </StyledListItemIcon>
                                 <ListItemText
                                     primary="Baccalauréat Économique et Social, Lycée Pasteur, Neuilly-Sur-Seine"
                                     secondary="2013 - 2014"
@@ -249,13 +254,6 @@ const BioPage = () => {
                 </Typography>
                 <Typography variant="body1">
                     Ouvert à de nouvelles opportunités dans le développement, je suis toujours disponible pour discuter de projets passionnants ou échanger sur nos lectures préférées.
-                </Typography>
-            </StyledPaper>
-
-            <StyledPaper style={{ marginTop: '20px' }}>
-                <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Contactez-Moi</Typography>
-                <Typography variant="body1">
-                    Pour des collaborations, des projets ou des opportunités professionnelles, n'hésitez pas à me contacter.
                 </Typography>
             </StyledPaper>
         </Container>
