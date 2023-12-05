@@ -30,6 +30,11 @@ const ComicBookBio = () => {
     const [visiblePanelCount, setVisiblePanelCount] = useState(1); // starts with 1 panel visible
     const panelRefs = useRef([]);
 
+    // Scroll to top when the component mounts
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const panels = [
         <div className="panel">
                 <p className="text topLeft">2014</p>
