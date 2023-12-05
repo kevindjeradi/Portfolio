@@ -5,6 +5,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
+import 'style/Bio.css';
 import SchoolIcon from '@mui/icons-material/School';
 import { motion } from 'framer-motion';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -44,10 +45,10 @@ const ComicBookBioTeaser = () => {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             onClick={() => navigate('/ComicBookBio')}
-            style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer', margin: '20px 0' }}
+            style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer', margin: '20px 0', animation: 'idleAnimation 4s infinite', }}
         >
             <Typography variant="body2" style={{ fontStyle: 'italic', color: blueGrey[600], textAlign: 'center' }}>
-                Vous avez remarqué un trou dans mon parcours ? J'ai une histoire à raconter.
+                Vous avez remarqué le trou dans mon parcours et vous voulez savoir pourquoi ?
             </Typography>
 
             <motion.div
