@@ -105,8 +105,28 @@ const StyledListItemIcon = styled(ListItemIcon)({
     marginRight: '20px',
   });
 
+  const ExpandableSection = styled(Paper)(({ expanded }) => ({
+    flexGrow: expanded ? 1 : 0,
+    flexBasis: expanded ? '100%' : '50%',
+    transition: 'flex-grow 0.3s ease',
+    padding: '20px',
+    margin: '10px',
+    cursor: 'pointer',
+    backgroundColor: grey[100],
+    borderRadius: '20px',
+    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.12)',
+    '&:hover': {
+        boxShadow: '0 12px 24px rgba(0, 0, 0, 0.12)',
+    },
+}));
+
 const BioPage = () => {
     const matches = useMediaQuery('(min-width:600px)');
+    const [isAboutExpanded, setAboutExpanded] = useState(false);
+    const [isInterestsExpanded, setInterestsExpanded] = useState(false);
+
+    const toggleAbout = () => setAboutExpanded(!isAboutExpanded);
+    const toggleInterests = () => setInterestsExpanded(!isInterestsExpanded);
 
     return (
         <Container maxWidth="lg">
@@ -131,7 +151,7 @@ const BioPage = () => {
                             </ContactItem>
                     </Link>
                 </div>
-                
+
                 <ContactRow>
                     <Link href="mailto:kevindjeradi@hotmail.fr" style={{ textDecoration: 'none' }}>
                         <ContactItem>
@@ -156,6 +176,45 @@ const BioPage = () => {
                     </Link>
                 </ContactRow>
             </Box>
+
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={isAboutExpanded ? 12 : 6}>
+                    <ExpandableSection expanded={isAboutExpanded} onClick={toggleAbout}>
+                        <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>À Propos</Typography>
+                        <Typography variant="body1">
+                            {isAboutExpanded ? 
+                              "Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans. Spécialisé dans la création d'applications mobiles et web, j'accorde une grande importance à l'expérience utilisateur et la performance. Mon parcours à Epitech m'a permis d'acquérir des compétences solides en programmation et de développer une approche pragmatique et realiste des projets technologiques." 
+                              : 
+                              "Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans."
+                            }
+                        </Typography>
+                    </ExpandableSection>
+                </Grid>
+
+                <Grid item xs={12} md={isInterestsExpanded ? 12 : 6}>
+                    <ExpandableSection expanded={isInterestsExpanded} onClick={toggleInterests}>
+                        <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Intérêts Personnels</Typography>
+                        <Typography variant="body1">
+                            {isInterestsExpanded ? 
+                              "Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel. En dehors du codage, je suis un fervent lecteur de light novels fantastiques et de mangas, et j'aime me détendre en regardant des séries, films ou en suivant des streams sur Twitch. Le sport joue également un rôle clé dans ma vie, m'aidant à décompresser et à gérer le stress." 
+                              : 
+                              "Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative."
+                            }
+                        </Typography>
+                    </ExpandableSection>
+                </Grid>
+            </Grid>
+
+            <StyledPaper>
+                <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Compétences</Typography>
+                <Grid container spacing={2}>
+                    {['Flutter', 'React.js', 'Node.js', 'Laravel', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git', 'C', 'PHP', 'MYSQL', 'Bootstrap'].map(skill => (
+                        <Grid item key={skill}>
+                            <Chip label={skill} variant="filled" color="primary" style={{ fontWeight: 'bold' }} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </StyledPaper>
 
             <StyledPaper>
                 <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>À Propos</Typography>
@@ -231,17 +290,6 @@ const BioPage = () => {
                         </CardContent>
                     </StyledCard>
                 </List>
-            </StyledPaper>
-
-            <StyledPaper>
-                <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Compétences</Typography>
-                <Grid container spacing={2}>
-                    {['Flutter', 'React.js', 'Node.js', 'Laravel', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git', 'C', 'PHP', 'MYSQL', 'Bootstrap'].map(skill => (
-                        <Grid item key={skill}>
-                            <Chip label={skill} variant="filled" color="primary" style={{ fontWeight: 'bold' }} />
-                        </Grid>
-                    ))}
-                </Grid>
             </StyledPaper>
 
             <StyledPaper style={{ marginTop: '20px' }}>
