@@ -86,6 +86,14 @@ const ComicBookBioTeaser = () => {
     );
 }
 
+const ContactRow = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: '10px',
+    padding: '10px 0',
+}));
+
 const ContactItem = styled(Box)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -97,26 +105,25 @@ const ContactItem = styled(Box)(({ theme }) => ({
         backgroundColor: grey[200],
         boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.15)',
     },
+    [theme.breakpoints.down('sm')]: {
+        padding: theme.spacing(0.5),
+    },
 }));
 
-const ContactIcon = styled(Box)({
+const ContactIcon = styled(Box)(({ theme }) => ({
     marginRight: '10px',
     display: 'flex',
     alignItems: 'center',
-});
+    
+}));
 
-const ContactText = styled(Typography)({
+const ContactText = styled(Typography)(({ theme }) => ({
     color: blueGrey[700],
     fontWeight: '500',
-});
-
-const ContactRow = styled(Box)({
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: '10px',
-    padding: '10px 0',
-});
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '0.8rem',
+    },
+}));
 
 const StyledListItemIcon = styled(ListItemIcon)({
     marginRight: '20px',
