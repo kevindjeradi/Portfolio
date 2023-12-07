@@ -7,7 +7,6 @@ import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import 'style/Bio.css';
 import { motion, AnimatePresence } from 'framer-motion';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import bioPicture from 'images/bio_picture.PNG'
 import comicPreview from 'images/bio/comic_preview.png'
 import school from 'images/icones/school.gif';
@@ -15,6 +14,7 @@ import graduation from 'images/icones/graduation-cap.gif';
 import linkedin from 'images/icones/linkedin.gif';
 import github from 'images/icones/github.gif';
 import mail from 'images/icones/mail.gif';
+import down_arrow from 'images/icones/arrow-down.gif';
 
 const StyledPaper = styled(Paper)({
     backgroundColor: grey[100],
@@ -192,7 +192,7 @@ const BioPage = () => {
                     <ExpandableSection
                         onClick={toggleAbout}
                         initial={{ height: 0 }}
-                        animate={{ height: isAboutExpanded ? 'auto' : 110 }}
+                        animate={{ height: isAboutExpanded ? 'auto' : 120 }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
                     >
                         <AnimatePresence>
@@ -220,10 +220,14 @@ const BioPage = () => {
                         }
                         </AnimatePresence>
                         <Box textAlign="center" sx={{ marginTop: '10px' }}>
-                        <ExpandMoreIcon 
+                        <img 
+                            src={down_arrow}
+                            alt="Expand arrow"
                             style={{ 
-                                transform: isAboutExpanded ? 'rotate(180deg)' : 'rotate(0deg)', 
-                                transition: 'transform 0.3s ease-in-out'
+                                transform: isAboutExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                                transition: 'transform 0.8s ease-in-out',
+                                mixBlendMode: 'multiply',
+                                height: '25px',
                             }} 
                         />
                     </Box>
@@ -234,7 +238,7 @@ const BioPage = () => {
                     <ExpandableSection
                         onClick={toggleInterests}
                         initial={{ height: 0 }}
-                        animate={{ height: isInterestsExpanded ? 'auto' : 110 }}
+                        animate={{ height: isInterestsExpanded ? 'auto' : 120 }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
                     >
                         <AnimatePresence>
@@ -262,10 +266,14 @@ const BioPage = () => {
                         }
                         </AnimatePresence>
                         <Box textAlign="center" sx={{ marginTop: '10px' }}>
-                        <ExpandMoreIcon 
+                        <img 
+                            src={down_arrow}
+                            alt="Expand arrow"
                             style={{ 
-                                transform: isInterestsExpanded ? 'rotate(180deg)' : 'rotate(0deg)', 
-                                transition: 'transform 0.3s ease-in-out'
+                                transform: isInterestsExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                                transition: 'transform 0.8s ease-in-out',
+                                mixBlendMode: 'multiply',
+                                height: '25px',
                             }} 
                         />
                     </Box>
