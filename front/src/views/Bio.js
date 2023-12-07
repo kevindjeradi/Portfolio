@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Container, Typography, Avatar, Grid, Chip, Link, Paper, Box, useMediaQuery, Card, CardContent, List, ListItem, ListItemIcon, ListItemText, Tooltip
+  Container, Typography, Avatar, Grid, Link, Paper, Box, useMediaQuery, Card, CardContent, List, ListItem, ListItemIcon, ListItemText, Tooltip
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { blueGrey, grey } from '@mui/material/colors';
@@ -15,6 +15,22 @@ import linkedin from 'images/icones/linkedin.gif';
 import github from 'images/icones/github.gif';
 import mail from 'images/icones/mail.gif';
 import down_arrow from 'images/icones/arrow-down.gif';
+import css from 'images/stack/css.png';
+import firebase from 'images/stack/firebase.png';
+import flutter from 'images/stack/flutter.png';
+import html from 'images/stack/html.png';
+import javascript from 'images/stack/javascript.png';
+import laravel from 'images/stack/laravel.png';
+import mongodb from 'images/stack/mongodb.png';
+import node from 'images/stack/node.png';
+import postgresql from 'images/stack/postgresql.png';
+import react from 'images/stack/react.png';
+import sql from 'images/stack/sql.png';
+import git from 'images/stack/git.png';
+import c from 'images/stack/c.png';
+import php from 'images/stack/php.png';
+import mysql from 'images/stack/mysql.png';
+import bootstrap from 'images/stack/bootstrap.png';
 
 const StyledPaper = styled(Paper)({
     backgroundColor: grey[100],
@@ -119,6 +135,25 @@ const StyledListItemIcon = styled(ListItemIcon)({
     overflow: 'hidden',
 });
 
+const skillImages = {
+    'Flutter': flutter,
+    'React.js': react,
+    'Node.js': node,
+    'Laravel': laravel,
+    'Firebase': firebase,
+    'HTML5': html,
+    'CSS3': css,
+    'JavaScript': javascript,
+    'SQL': sql,
+    'Git': git,
+    'C': c,
+    'PHP': php,
+    'MYSQL': mysql,
+    'MongoDB': mongodb,
+    'PostgreSQL': postgresql,
+    'Bootstrap': bootstrap,
+};
+
 const BioPage = () => {
     const matches = useMediaQuery('(min-width:600px)');
     const [isAboutExpanded, setAboutExpanded] = useState(false);
@@ -180,8 +215,11 @@ const BioPage = () => {
                 <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Compétences</Typography>
                 <Grid container spacing={2}>
                     {['Flutter', 'React.js', 'Node.js', 'Laravel', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git', 'C', 'PHP', 'MYSQL', 'Bootstrap'].map(skill => (
-                        <Grid item key={skill}>
-                            <Chip label={skill} variant="filled" color="primary" style={{ fontWeight: 'bold' }} />
+                        <Grid item key={skill} xs={6} sm={4} md={3}>
+                            <Box textAlign="center">
+                                <img src={skillImages[skill]} alt={skill} style={{ height: '50px', marginBottom: '10px' }}/>
+                                <Typography variant="subtitle1" style={{ fontWeight: 'bold' }}>{skill}</Typography>
+                            </Box>
                         </Grid>
                     ))}
                 </Grid>
