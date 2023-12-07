@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container, Typography, Avatar, Grid, Link, Paper, Box, useMediaQuery, Card, CardContent, List, ListItem, ListItemIcon, ListItemText, Tooltip
 } from '@mui/material';
@@ -158,9 +158,27 @@ const BioPage = () => {
     const matches = useMediaQuery('(min-width:600px)');
     const [isAboutExpanded, setAboutExpanded] = useState(false);
     const [isInterestsExpanded, setInterestsExpanded] = useState(false);
+    const [responsiveHeight, setResponsiveHeight] = useState('120px');
 
     const toggleAbout = () => setAboutExpanded(!isAboutExpanded);
     const toggleInterests = () => setInterestsExpanded(!isInterestsExpanded);
+
+    const updateHeight = () => {
+        if (window.innerWidth < 480) {
+            setResponsiveHeight('20vh');
+        } else if (window.innerWidth < 900) {
+            setResponsiveHeight('15vh');
+        }
+        else {
+            setResponsiveHeight('18vh');
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', updateHeight);
+        updateHeight();
+        return () => window.removeEventListener('resize', updateHeight);
+    }, []);
 
     return (
         <Container maxWidth="lg">
@@ -217,7 +235,7 @@ const BioPage = () => {
                     {['Flutter', 'React.js', 'Node.js', 'Laravel', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git', 'C', 'PHP', 'MYSQL', 'Bootstrap'].map(skill => (
                         <Grid item key={skill} xs={6} sm={4} md={3}>
                             <Box textAlign="center">
-                                <img src={skillImages[skill]} alt={skill} style={{ height: '50px', marginBottom: '10px' }}/>
+                                <img src={skillImages[skill]} alt={skill} style={{ height: '40px', marginBottom: '10px' }}/>
                                 <Typography variant="subtitle1" style={{ fontWeight: 'bold' }}>{skill}</Typography>
                             </Box>
                         </Grid>
@@ -230,7 +248,7 @@ const BioPage = () => {
                     <ExpandableSection
                         onClick={toggleAbout}
                         initial={{ height: 0 }}
-                        animate={{ height: isAboutExpanded ? 'auto' : 120 }}
+                        animate={{ height: isAboutExpanded ? 'auto' : responsiveHeight }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
                     >
                         <AnimatePresence>
@@ -276,7 +294,7 @@ const BioPage = () => {
                     <ExpandableSection
                         onClick={toggleInterests}
                         initial={{ height: 0 }}
-                        animate={{ height: isInterestsExpanded ? 'auto' : 120 }}
+                        animate={{ height: isInterestsExpanded ? 'auto' : responsiveHeight }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
                     >
                         <AnimatePresence>
@@ -286,7 +304,7 @@ const BioPage = () => {
                             (
                                 <React.Fragment>
                                     <Typography variant="body1" sx={{ marginBottom: '15px' }}>
-                                        Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel.
+                                        Passionné de technologie et de développement, j'ai repris mes études après une longue pause. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel.
                                     </Typography>
                                     <Typography variant="body1"sx={{ marginBottom: '15px' }}>
                                         En dehors du codage, je suis un fervent lecteur de light novels fantastiques et de mangas, et j'aime me détendre en regardant des séries, films ou en suivant des streams sur Twitch. Le sport joue également un rôle clé dans ma vie, m'aidant à décompresser et à gérer le stress.
@@ -298,7 +316,7 @@ const BioPage = () => {
                             ) : 
                             (
                                 <Typography variant="body1">
-                                    Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative.
+                                    Passionné de technologie et de développement, j'ai repris mes études après une longue pause.
                                 </Typography>
                             )
                         }
