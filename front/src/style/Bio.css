@@ -23,6 +23,17 @@
     }
 }
 
+/* CSS classes for expanded and collapsed states */
+.grid-expanded {
+    max-width: 100%;
+    transition: max-width 0.5s ease-in-out;
+  }
+  
+  .grid-collapsed {
+    max-width: 50%;
+    transition: max-width 0.5s ease-in-out;
+  }
+
 .comic {
     display: flex;
     flex-wrap: wrap;

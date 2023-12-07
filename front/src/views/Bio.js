@@ -251,8 +251,7 @@ const BioPage = () => {
             </StyledPaper>
 
             <Grid container spacing={2}>
-                <Grid item xs={12} md={isAboutExpanded ? 12 : 6}>
-                    <ExpandableSection
+                <Grid item xs={12} md={isAboutExpanded ? 12 : 6} className={isAboutExpanded ? 'grid-expanded' : 'grid-collapsed'}>                    <ExpandableSection
                         onClick={toggleAbout}
                         initial={{ height: 0 }}
                         animate={{ height: isAboutExpanded ? 'auto' : responsiveHeight }}
@@ -297,7 +296,7 @@ const BioPage = () => {
                     </ExpandableSection>
                 </Grid>
 
-                <Grid item xs={12} md={isInterestsExpanded ? 12 : 6}>
+                <Grid item xs={12} md={isInterestsExpanded ? 12 : 6} className={isInterestsExpanded ? 'grid-expanded' : 'grid-collapsed'}>
                     <ExpandableSection
                         onClick={toggleInterests}
                         initial={{ height: 0 }}
