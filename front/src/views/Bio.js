@@ -7,6 +7,7 @@ import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import 'style/Bio.css';
 import { motion, AnimatePresence } from 'framer-motion';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import bioPicture from 'images/bio_picture.PNG'
 import comicPreview from 'images/bio/comic_preview.png'
 import school from 'images/icones/school.gif';
@@ -191,7 +192,7 @@ const BioPage = () => {
                     <ExpandableSection
                         onClick={toggleAbout}
                         initial={{ height: 0 }}
-                        animate={{ height: isAboutExpanded ? 'auto' : 100 }}
+                        animate={{ height: isAboutExpanded ? 'auto' : 110 }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
                     >
                         <AnimatePresence>
@@ -218,6 +219,14 @@ const BioPage = () => {
                             )
                         }
                         </AnimatePresence>
+                        <Box textAlign="center" sx={{ marginTop: '10px' }}>
+                        <ExpandMoreIcon 
+                            style={{ 
+                                transform: isAboutExpanded ? 'rotate(180deg)' : 'rotate(0deg)', 
+                                transition: 'transform 0.3s ease-in-out'
+                            }} 
+                        />
+                    </Box>
                     </ExpandableSection>
                 </Grid>
 
@@ -225,7 +234,7 @@ const BioPage = () => {
                     <ExpandableSection
                         onClick={toggleInterests}
                         initial={{ height: 0 }}
-                        animate={{ height: isInterestsExpanded ? 'auto' : 100 }}
+                        animate={{ height: isInterestsExpanded ? 'auto' : 110 }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
                     >
                         <AnimatePresence>
@@ -252,6 +261,14 @@ const BioPage = () => {
                             )
                         }
                         </AnimatePresence>
+                        <Box textAlign="center" sx={{ marginTop: '10px' }}>
+                        <ExpandMoreIcon 
+                            style={{ 
+                                transform: isInterestsExpanded ? 'rotate(180deg)' : 'rotate(0deg)', 
+                                transition: 'transform 0.3s ease-in-out'
+                            }} 
+                        />
+                    </Box>
                     </ExpandableSection>
                 </Grid>
             </Grid>
