@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import 'style/Bio.css';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import bioPicture from 'images/bio_picture.PNG'
 import comicPreview from 'images/bio/comic_preview.png'
 import school from 'images/icones/school.gif';
@@ -105,10 +105,7 @@ const StyledListItemIcon = styled(ListItemIcon)({
     marginRight: '20px',
   });
 
-  const ExpandableSection = styled(Paper)(({ expanded }) => ({
-    flexGrow: expanded ? 1 : 0,
-    flexBasis: expanded ? '100%' : '50%',
-    transition: 'flex-grow 0.3s ease',
+  const ExpandableSection = styled(motion.div)({
     padding: '20px',
     margin: '10px',
     cursor: 'pointer',
@@ -118,7 +115,8 @@ const StyledListItemIcon = styled(ListItemIcon)({
     '&:hover': {
         boxShadow: '0 12px 24px rgba(0, 0, 0, 0.12)',
     },
-}));
+    overflow: 'hidden',
+});
 
 const BioPage = () => {
     const matches = useMediaQuery('(min-width:600px)');
@@ -177,11 +175,27 @@ const BioPage = () => {
                 </ContactRow>
             </Box>
 
+            <StyledPaper>
+                <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Compétences</Typography>
+                <Grid container spacing={2}>
+                    {['Flutter', 'React.js', 'Node.js', 'Laravel', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git', 'C', 'PHP', 'MYSQL', 'Bootstrap'].map(skill => (
+                        <Grid item key={skill}>
+                            <Chip label={skill} variant="filled" color="primary" style={{ fontWeight: 'bold' }} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </StyledPaper>
+
             <Grid container spacing={2}>
                 <Grid item xs={12} md={isAboutExpanded ? 12 : 6}>
-                    <ExpandableSection expanded={isAboutExpanded} onClick={toggleAbout}>
+                    <ExpandableSection
+                        onClick={toggleAbout}
+                        initial={{ height: 0 }}
+                        animate={{ height: isAboutExpanded ? 'auto' : 100 }}
+                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    >
+                        <AnimatePresence>
                         <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>À Propos</Typography>
-                        
                         {
                             isAboutExpanded ? 
                             (
@@ -203,11 +217,18 @@ const BioPage = () => {
                                 </Typography>
                             )
                         }
+                        </AnimatePresence>
                     </ExpandableSection>
                 </Grid>
 
                 <Grid item xs={12} md={isInterestsExpanded ? 12 : 6}>
-                    <ExpandableSection expanded={isInterestsExpanded} onClick={toggleInterests}>
+                    <ExpandableSection
+                        onClick={toggleInterests}
+                        initial={{ height: 0 }}
+                        animate={{ height: isInterestsExpanded ? 'auto' : 100 }}
+                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    >
+                        <AnimatePresence>
                         <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Intérêts Personnels</Typography>
                         {
                             isInterestsExpanded ? 
@@ -230,20 +251,10 @@ const BioPage = () => {
                                 </Typography>
                             )
                         }
+                        </AnimatePresence>
                     </ExpandableSection>
                 </Grid>
             </Grid>
-
-            <StyledPaper>
-                <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Compétences</Typography>
-                <Grid container spacing={2}>
-                    {['Flutter', 'React.js', 'Node.js', 'Laravel', 'Firebase', 'HTML5', 'CSS3', 'JavaScript', 'SQL', 'Git', 'C', 'PHP', 'MYSQL', 'Bootstrap'].map(skill => (
-                        <Grid item key={skill}>
-                            <Chip label={skill} variant="filled" color="primary" style={{ fontWeight: 'bold' }} />
-                        </Grid>
-                    ))}
-                </Grid>
-            </StyledPaper>
 
             <StyledPaper style={{ marginTop: '20px' }}>
                 <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Diplômes et Formations</Typography>
