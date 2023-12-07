@@ -181,26 +181,55 @@ const BioPage = () => {
                 <Grid item xs={12} md={isAboutExpanded ? 12 : 6}>
                     <ExpandableSection expanded={isAboutExpanded} onClick={toggleAbout}>
                         <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>À Propos</Typography>
-                        <Typography variant="body1">
-                            {isAboutExpanded ? 
-                              "Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans. Spécialisé dans la création d'applications mobiles et web, j'accorde une grande importance à l'expérience utilisateur et la performance. Mon parcours à Epitech m'a permis d'acquérir des compétences solides en programmation et de développer une approche pragmatique et realiste des projets technologiques." 
-                              : 
-                              "Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans."
-                            }
-                        </Typography>
+                        
+                        {
+                            isAboutExpanded ? 
+                            (
+                                <React.Fragment>
+                                    <Typography variant="body1" sx={{ marginBottom: '15px' }}>
+                                        Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans.
+                                    </Typography>
+                                    <Typography variant="body1" sx={{ marginBottom: '15px' }}>
+                                        Spécialisé dans la création d'applications mobiles et web, j'accorde une grande importance à l'expérience utilisateur et la performance.
+                                    </Typography>
+                                    <Typography variant="body1">
+                                        Mon parcours à Epitech m'a permis d'acquérir des compétences solides en programmation et de développer une approche pragmatique et realiste des projets technologiques.
+                                    </Typography>
+                                </React.Fragment>
+                            ) : 
+                            (
+                                <Typography variant="body1">
+                                    Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans.
+                                </Typography>
+                            )
+                        }
                     </ExpandableSection>
                 </Grid>
 
                 <Grid item xs={12} md={isInterestsExpanded ? 12 : 6}>
                     <ExpandableSection expanded={isInterestsExpanded} onClick={toggleInterests}>
                         <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Intérêts Personnels</Typography>
-                        <Typography variant="body1">
-                            {isInterestsExpanded ? 
-                              "Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel. En dehors du codage, je suis un fervent lecteur de light novels fantastiques et de mangas, et j'aime me détendre en regardant des séries, films ou en suivant des streams sur Twitch. Le sport joue également un rôle clé dans ma vie, m'aidant à décompresser et à gérer le stress." 
-                              : 
-                              "Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative."
-                            }
-                        </Typography>
+                        {
+                            isInterestsExpanded ? 
+                            (
+                                <React.Fragment>
+                                    <Typography variant="body1" sx={{ marginBottom: '15px' }}>
+                                        Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel.
+                                    </Typography>
+                                    <Typography variant="body1"sx={{ marginBottom: '15px' }}>
+                                        En dehors du codage, je suis un fervent lecteur de light novels fantastiques et de mangas, et j'aime me détendre en regardant des séries, films ou en suivant des streams sur Twitch. Le sport joue également un rôle clé dans ma vie, m'aidant à décompresser et à gérer le stress.
+                                    </Typography>
+                                    <Typography variant="body1">
+                                        Ouvert à de nouvelles opportunités dans le développement, je suis toujours disponible pour discuter de projets passionnants ou échanger sur nos lectures préférées.
+                                    </Typography>
+                                </React.Fragment>
+                            ) : 
+                            (
+                                <Typography variant="body1">
+                                    Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative.
+                                </Typography>
+                            )
+                        }
                     </ExpandableSection>
                 </Grid>
             </Grid>
@@ -214,19 +243,6 @@ const BioPage = () => {
                         </Grid>
                     ))}
                 </Grid>
-            </StyledPaper>
-
-            <StyledPaper>
-                <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>À Propos</Typography>
-                <Typography variant="body1">
-                    Développeur Fullstack web et mobile, actuellement en alternance chez Onepoint depuis bientôt 3 ans.
-                </Typography>
-                <Typography variant="body1">
-                    Spécialisé dans la création d'applications mobiles et web, j'accorde une grande importance à l'expérience utilisateur et la performance.
-                </Typography>
-                <Typography variant="body1">
-                    Mon parcours à Epitech m'a permis d'acquérir des compétences solides en programmation et de développer une approche pragmatique et realiste des projets technologiques.
-                </Typography>
             </StyledPaper>
 
             <StyledPaper style={{ marginTop: '20px' }}>
@@ -290,19 +306,6 @@ const BioPage = () => {
                         </CardContent>
                     </StyledCard>
                 </List>
-            </StyledPaper>
-
-            <StyledPaper style={{ marginTop: '20px' }}>
-                <Typography variant="h5" style={{ color: blueGrey[800], marginBottom: '15px' }}>Intérêts Personnels</Typography>
-                <Typography variant="body1">
-                    Passionné de technologie et de développement, je me suis récemment replongé dans mes études après une pause significative. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel.
-                </Typography>
-                <Typography variant="body1">
-                    En dehors du codage, je suis un fervent lecteur de light novels fantastiques et de mangas, et j'aime me détendre en regardant des séries, films ou en suivant des streams sur Twitch. Le sport joue également un rôle clé dans ma vie, m'aidant à décompresser et à gérer le stress.
-                </Typography>
-                <Typography variant="body1">
-                    Ouvert à de nouvelles opportunités dans le développement, je suis toujours disponible pour discuter de projets passionnants ou échanger sur nos lectures préférées.
-                </Typography>
             </StyledPaper>
         </Container>
     );
