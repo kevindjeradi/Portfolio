@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import {
   Container, Typography, Avatar, Grid, Link, Paper, Box, useMediaQuery, Card, CardContent, List, ListItem, ListItemIcon, ListItemText, Tooltip
 } from '@mui/material';
+import {
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogContentText,
+    DialogActions,
+    Button
+  } from '@mui/material';  
 import { useNavigate } from 'react-router-dom';
 import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
@@ -56,33 +64,63 @@ const ComicBookBioTeaser = () => {
     const navigate = useNavigate();
     const matches = useMediaQuery('(min-width:600px)');
     const [isHovering, setIsHovering] = useState(false);
+    const [openDialog, setOpenDialog] = useState(false);
+
+    const handleOpenDialog = () => {
+        setOpenDialog(true);
+      };
+      
+      const handleCloseDialog = () => {
+        setOpenDialog(false);
+        navigate('/ComicBookBio');
+      };
+
+
 
     return (
         <Tooltip title="Découvrez ce qu'il s'est passé" placement="top">
-        <Box
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-            onClick={() => navigate('/ComicBookBio')}
-            style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer', margin: '20px 0', animation: 'idleAnimation 4s infinite', }}
-        >
-            <Typography variant="body2" style={{ fontStyle: 'italic', color: blueGrey[600], textAlign: 'center' }}>
-                Vous avez remarqué le trou dans mon parcours et vous voulez savoir pourquoi ?
-            </Typography>
+            <Box
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+                onClick={handleOpenDialog}
+                style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer', margin: '20px 0', animation: 'idleAnimation 4s infinite', }}
+            >
+                <Typography variant="body2" style={{ fontStyle: 'italic', color: blueGrey[600], textAlign: 'center' }}>
+                    Vous avez remarqué le trou dans mon parcours et vous voulez savoir pourquoi ?
+                </Typography>
 
-            <motion.div
-                initial={false}
-                animate={isHovering ? { width: matches ? 130 : 100, height: matches ? 130 : 100 } : { width: 80, height: 80 }}
-                transition={{ duration: 0.5 }}
-                style={{ borderRadius: isHovering ? '10px' : '50%', overflow: 'hidden', margin: '10px' }}
+                <motion.div
+                    initial={false}
+                    animate={isHovering ? { width: matches ? 130 : 100, height: matches ? 130 : 100 } : { width: 80, height: 80 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ borderRadius: isHovering ? '10px' : '50%', overflow: 'hidden', margin: '10px' }}
+                    >
+                    <img 
+                        src={comicPreview}
+                        alt="Interactive Cartoon"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                </motion.div>
+            </Box>
+            <Dialog
+                open={openDialog}
+                onClose={handleCloseDialog}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
                 >
-                <img 
-                    src={comicPreview}
-                    alt="Interactive Cartoon"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-            </motion.div>
-        </Box>
-                    </Tooltip>
+                <DialogTitle id="alert-dialog-title">Attention</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Pour vous prévenir. L'histoire sur la page suivante est très personnelle et est triste.
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseDialog} autoFocus>
+                    Continue
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </Tooltip>
     );
 }
 
@@ -331,12 +369,12 @@ const BioPage = () => {
                         <img 
                             src={down_arrow}
                             alt="Expand arrow"
-                            style={{ 
+                            style={{
                                 transform: isInterestsExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
                                 transition: 'transform 0.8s ease-in-out',
                                 mixBlendMode: 'multiply',
                                 height: '25px',
-                            }} 
+                            }}
                         />
                     </Box>
                     </ExpandableSection>
