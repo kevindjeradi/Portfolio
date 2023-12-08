@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { blueGrey, grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import 'style/Bio.css';
+import WarningIcon from '@mui/icons-material/Warning';
 import { motion, AnimatePresence } from 'framer-motion';
 import bioPicture from 'images/bio_picture.PNG'
 import comicPreview from 'images/bio/comic_preview.png'
@@ -60,6 +61,29 @@ const StyledCard = styled(Card)({
     },
 });
 
+const CustomDialog = styled(Dialog)({
+    '& .MuiDialog-paper': {
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '20px',
+    },
+  });
+  
+  const CustomDialogTitle = styled(DialogTitle)({
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: blueGrey[800],
+  });
+  
+  const CustomDialogContent = styled(DialogContent)({
+    color: blueGrey[600],
+  });
+  
+  const CustomDialogActions = styled(DialogActions)({
+    justifyContent: 'center',
+    padding: '20px',
+  });
+
 const ComicBookBioTeaser = () => {
     const navigate = useNavigate();
     const matches = useMediaQuery('(min-width:600px)');
@@ -74,8 +98,6 @@ const ComicBookBioTeaser = () => {
         setOpenDialog(false);
         navigate('/ComicBookBio');
       };
-
-
 
     return (
         <Tooltip title="Découvrez ce qu'il s'est passé" placement="top">
@@ -102,24 +124,22 @@ const ComicBookBioTeaser = () => {
                         />
                 </motion.div>
             </Box>
-            <Dialog
-                open={openDialog}
-                onClose={handleCloseDialog}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-                >
-                <DialogTitle id="alert-dialog-title">Attention</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        Pour vous prévenir. L'histoire sur la page suivante est très personnelle et est triste.
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleCloseDialog} autoFocus>
-                    Continue
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <CustomDialog open={openDialog} onClose={handleCloseDialog}>
+  <CustomDialogTitle id="alert-dialog-title">
+    <WarningIcon />  {/* Add warning icon */}
+    Attention
+  </CustomDialogTitle>
+  <CustomDialogContent>
+    <DialogContentText id="alert-dialog-description">
+      Pour vous prévenir. L'histoire sur la page suivante est très personnelle et est triste.
+    </DialogContentText>
+  </CustomDialogContent>
+  <CustomDialogActions>
+    <Button onClick={handleCloseDialog} autoFocus>
+      Continue
+    </Button>
+  </CustomDialogActions>
+</CustomDialog>
         </Tooltip>
     );
 }
