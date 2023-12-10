@@ -6,7 +6,8 @@ import {
   TimelineSeparator,
   TimelineConnector,
   TimelineContent,
-  TimelineDot
+  TimelineDot,
+  TimelineOppositeContent
 } from '@mui/lab';
 import { Paper, Typography } from '@mui/material';
 import VisibilitySensor from "react-visibility-sensor";
@@ -21,7 +22,7 @@ import huh from 'images/gifs/huh.gif';
 const timelineData = [
   {
     id: "001",
-    dateText: "11/2010 – Present",
+    dateText: "11/2010 - Present",
     image: chat,
     title: "Chat Developer",
     company: "Chat Co.",
@@ -29,7 +30,7 @@ const timelineData = [
   },
   {
     id: "002",
-    dateText: "04/2009 – 11/2010",
+    dateText: "04/2009 - 11/2010",
     image: livreur,
     title: "Delivery Manager",
     company: "Delivery Inc.",
@@ -37,7 +38,7 @@ const timelineData = [
   },
   {
     id: "003",
-    dateText: "08/2008 – 11/2008",
+    dateText: "08/2008 - 11/2008",
     image: huh,
     title: "Research Analyst",
     company: "Research Ltd.",
@@ -45,7 +46,7 @@ const timelineData = [
   },
   {
     id: "004",
-    dateText: "08/2008 – 11/2008",
+    dateText: "08/2008 - 11/2008",
     image: dev,
     title: "Software Developer",
     company: "Dev Corp.",
@@ -53,7 +54,7 @@ const timelineData = [
   },
   {
     id: "005",
-    dateText: "08/2008 – 11/2008",
+    dateText: "08/2008 - 11/2008",
     image: chat,
     title: "Customer Support",
     company: "Support Solutions",
@@ -61,32 +62,37 @@ const timelineData = [
   }
 ];
 
-
 const TimelineCard = ({ image, title, company, description }) => (
-  <Paper elevation={3} style={{ padding: '20px', marginTop: '16px' }}>
-    <img src={image} alt={title} style={{ width: '100%', height: 'auto', marginBottom: '16px' }} />
+  <Paper elevation={3} style={{ padding: '20px', maxWidth: '300px', margin: '10px' }}>
+    <img src={image} alt={title} style={{ width: '100%', height: 'auto', maxWidth: '150px', marginBottom: '16px' }} />
     <Typography variant="h6">{title}</Typography>
     <Typography variant="subtitle1">{company}</Typography>
     <Typography variant="body2">{description}</Typography>
   </Paper>
 );
 
+
 function Experiences() {
   return (
     <div>
       <CustomAppBar />
-      <Timeline>
+      <Timeline align="alternate">
         {timelineData.map((item, index) => (
-          <VisibilitySensor key={item.id} partialVisibility offset={{ bottom: 200 }}>
+          <VisibilitySensor key={item.id} partialVisibility offset={{ bottom: 250 }}>
             {({ isVisible }) => (
               <MuiTimelineItem style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s' }}>
-                <TimelineSeparator>
-                  <TimelineDot color="primary">
+                <TimelineOppositeContent sx={{margin: "0 15px 0 15px"}}>
+                  <Typography variant="body2" color="textSecondary"  sx={{marginTop: "15px"}}>
+                    {item.dateText}
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator sx={{margin: "0 15px 0 15px"}}>
+                  <TimelineDot color="primary" >
                     <RoundedIcon />
                   </TimelineDot>
                   {index < timelineData.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
-                <TimelineContent>
+                <TimelineContent sx={{margin: "0 15px 0 15px"}}>
                   <TimelineCard {...item} />
                 </TimelineContent>
               </MuiTimelineItem>
