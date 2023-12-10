@@ -78,7 +78,7 @@ function Experiences() {
       <CustomAppBar />
       <Timeline align="alternate">
         {timelineData.map((item, index) => (
-          <VisibilitySensor key={item.id} partialVisibility offset={{ bottom: 250 }}>
+          <VisibilitySensor key={item.id} partialVisibility offset={{ bottom: 400 }}>
             {({ isVisible }) => (
               <MuiTimelineItem style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s' }}>
                 <TimelineOppositeContent sx={{margin: "0 15px 0 15px"}}>

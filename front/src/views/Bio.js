@@ -63,35 +63,35 @@ const StyledCard = styled(Card)({
 
 const CustomDialog = styled(Dialog)({
     '& .MuiDialog-paper': {
-      backgroundColor: grey[100],
-      borderRadius: '10px',
-      padding: '24px',
-      color: blueGrey[800],
+    backgroundColor: grey[100],
+    borderRadius: '10px',
+    padding: '24px',
+    color: blueGrey[800],
     },
-  });
-  
-  const CustomDialogTitle = styled(DialogTitle)({
+});
+
+const CustomDialogTitle = styled(DialogTitle)({
     textAlign: 'center',
     fontWeight: 'bold',
     marginBottom: '16px',
-  });
-  
-  const CustomDialogContent = styled(DialogContent)({
+});
+
+const CustomDialogContent = styled(DialogContent)({
     marginBottom: '24px',
-  });
-  
-  const CustomDialogActions = styled(DialogActions)({
+});
+
+const CustomDialogActions = styled(DialogActions)({
     justifyContent: 'center',
     padding: '8px 24px',
-  });
-  
-  const ActionButton = styled(Button)({
+});
+
+const ActionButton = styled(Button)({
     fontWeight: 'bold',
     color: blueGrey[700],
     '&:hover': {
-      backgroundColor: blueGrey[50],
+        backgroundColor: blueGrey[50],
     },
-  });
+});
 
 const ComicBookBioTeaser = () => {
     const navigate = useNavigate();
@@ -113,30 +113,57 @@ const ComicBookBioTeaser = () => {
     };
 
     return (
-        <Tooltip title="Découvrez ce qu'il s'est passé" placement="top">
-            <Box
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-                onClick={handleOpenDialog}
-                style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer', margin: '20px 0', animation: 'idleAnimation 4s infinite', }}
-            >
-                <Typography variant="body2" style={{ fontStyle: 'italic', color: blueGrey[600], textAlign: 'center' }}>
-                    Vous avez remarqué le trou dans mon parcours et vous voulez savoir pourquoi ?
-                </Typography>
-
-                <motion.div
-                    initial={false}
-                    animate={isHovering ? { width: matches ? 130 : 100, height: matches ? 130 : 100 } : { width: 80, height: 80 }}
-                    transition={{ duration: 0.5 }}
-                    style={{ borderRadius: isHovering ? '10px' : '50%', overflow: 'hidden', margin: '10px' }}
+        <>
+            {!openDialog ? (
+                <Tooltip title="Découvrez ce qu'il s'est passé" placement="top">
+                    <Box
+                        onMouseEnter={() => setIsHovering(true)}
+                        onMouseLeave={() => setIsHovering(false)}
+                        onClick={handleOpenDialog}
+                        style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer', margin: '20px 0', animation: 'idleAnimation 4s infinite', }}
                     >
-                    <img 
-                        src={comicPreview}
-                        alt="Interactive Cartoon"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        <Typography variant="body2" style={{ fontStyle: 'italic', color: blueGrey[600], textAlign: 'center' }}>
+                            Vous avez remarqué le trou dans mon parcours et vous voulez savoir pourquoi ?
+                        </Typography>
+
+                        <motion.div
+                            initial={false}
+                            animate={isHovering ? { width: matches ? 130 : 100, height: matches ? 130 : 100 } : { width: 80, height: 80 }}
+                            transition={{ duration: 0.5 }}
+                            style={{ borderRadius: isHovering ? '10px' : '50%', overflow: 'hidden', margin: '10px' }}
+                        >
+                            <img 
+                                src={comicPreview}
+                                alt="Interactive Cartoon"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
+                        </motion.div>
+                    </Box>
+                </Tooltip>
+            ) : (
+                <Box
+                    onClick={handleOpenDialog}
+                    style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer', margin: '20px 0', animation: 'idleAnimation 4s infinite', }}
+                >
+                    <Typography variant="body2" style={{ fontStyle: 'italic', color: blueGrey[600], textAlign: 'center' }}>
+                        Vous avez remarqué le trou dans mon parcours et vous voulez savoir pourquoi ?
+                    </Typography>
+
+                    <motion.div
+                        initial={false}
+                        animate={isHovering ? { width: matches ? 130 : 100, height: matches ? 130 : 100 } : { width: 80, height: 80 }}
+                        transition={{ duration: 0.5 }}
+                        style={{ borderRadius: isHovering ? '10px' : '50%', overflow: 'hidden', margin: '10px' }}
+                    >
+                        <img 
+                            src={comicPreview}
+                            alt="Interactive Cartoon"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
-                </motion.div>
-            </Box>
+                    </motion.div>
+                </Box>
+            )}
+
             <CustomDialog open={openDialog} onClose={handleCloseDialog}>
                 <CustomDialogTitle id="alert-dialog-title">
                     <WarningIcon color="error" style={{ verticalAlign: 'middle', marginRight: '8px' }} />
@@ -144,7 +171,7 @@ const ComicBookBioTeaser = () => {
                 </CustomDialogTitle>
                 <CustomDialogContent>
                     <DialogContentText id="alert-dialog-description">
-                    Pour vous prévenir. L'histoire sur la page suivante est très personnelle et est triste.
+                        Pour vous prévenir. L'histoire sur la page suivante est très personnelle et est triste.
                     </DialogContentText>
                 </CustomDialogContent>
                 <CustomDialogActions>
@@ -153,9 +180,9 @@ const ComicBookBioTeaser = () => {
                     </ActionButton>
                 </CustomDialogActions>
             </CustomDialog>
-        </Tooltip>
+        </>
     );
-}
+};
 
 const ContactRow = styled(Box)(({ theme }) => ({
     display: 'flex',
