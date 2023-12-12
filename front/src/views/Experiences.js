@@ -64,7 +64,14 @@ const timelineData = [
 
 const TimelineCard = ({ image, title, company, description }) => (
   <Paper elevation={3} style={{ padding: '20px', maxWidth: '300px', margin: '10px' }}>
-    <img src={image} alt={title} style={{ width: '100%', height: 'auto', maxWidth: '150px', marginBottom: '16px' }} />
+    <img src={image} alt={title} style={{ 
+      display: 'block',
+      width: '100%', 
+      height: 'auto', 
+      maxWidth: '250px', 
+      marginBottom: '16px',
+      margin: 'auto'
+    }} />
     <Typography variant="h6">{title}</Typography>
     <Typography variant="subtitle1">{company}</Typography>
     <Typography variant="body2">{description}</Typography>
