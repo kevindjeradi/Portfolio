@@ -17,7 +17,7 @@ import chat from 'images/gifs/chat.gif';
 import livreur from 'images/gifs/livreur.gif';
 import dev from 'images/gifs/dev.gif';
 import huh from 'images/gifs/huh.gif';
-
+import "style/Experiences.css";
 
 const timelineData = [
   {
@@ -70,7 +70,7 @@ const TimelineCard = ({ image, title, company, description }) => (
       height: '250px', 
       maxWidth: 'auto', 
       marginBottom: '20px',
-      objectFit: 'cover',
+      objectFit: 'contain',
       margin: 'auto'
     }} />
     <Typography variant="h6">{title}</Typography>
@@ -78,7 +78,6 @@ const TimelineCard = ({ image, title, company, description }) => (
     <Typography variant="body2">{description}</Typography>
   </Paper>
 );
-
 
 function Experiences() {
   return (
@@ -90,9 +89,11 @@ function Experiences() {
             {({ isVisible }) => (
               <MuiTimelineItem style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s' }}>
                 <TimelineOppositeContent sx={{margin: "0 15px 0 15px"}}>
-                  <Typography variant="body2" color="textSecondary"  sx={{marginTop: "15px"}}>
-                    {item.dateText}
-                  </Typography>
+                <TimelineOppositeContent sx={{ margin: "0 15px 0 15px" }}>
+                <Typography variant="body2" color="textSecondary" sx={{fontWeight: "bold"}} className="customDateShape">
+                  {item.dateText}
+                </Typography>
+                </TimelineOppositeContent>
                 </TimelineOppositeContent>
                 <TimelineSeparator sx={{margin: "0 15px 0 15px"}}>
                   <TimelineDot color="primary" >
