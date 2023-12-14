@@ -27,10 +27,13 @@ import avatar_working2 from 'images/bio/avatar_working2.png'
 
 
 const ComicBookBio = () => {
-    const [visiblePanelCount, setVisiblePanelCount] = useState(1); // starts with 1 panel visible
+    const [visiblePanelCount, setVisiblePanelCount] = useState(1);
     const panelRefs = useRef([]);
 
-    // Scroll to top when the component mounts
+    const isMobileScreen = () => {
+        return window.innerWidth < 768;
+    };
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -165,8 +168,8 @@ const ComicBookBio = () => {
 
     panelRefs.current = panels.map((_, i) => panelRefs.current[i] ?? createRef());
 
-    const scrollToPanel = (index) => {
-        if (panelRefs.current[index]) {
+    const scrollToPanel = (index, shouldScroll = true) => {
+        if (shouldScroll && panelRefs.current[index]) {
             panelRefs.current[index].scrollIntoView({
                 behavior: 'smooth',
                 block: 'nearest'
@@ -174,15 +177,23 @@ const ComicBookBio = () => {
         }
     };
 
-    const showNextPanel = useCallback(() => {
-        setVisiblePanelCount(prevCount => Math.min(prevCount + 1, panels.length));
-        scrollToPanel(visiblePanelCount);
-    }, [panels.length, visiblePanelCount]);
+    const showNextPanel = useCallback((shouldScroll = true) => {
+        setVisiblePanelCount(prevCount => {
+            const newCount = Math.min(prevCount + 1, panels.length);
+            if (shouldScroll) {
+                scrollToPanel(newCount - 1);
+            }
+            return newCount;
+        });
+    }, [panels.length]);
 
     const hideLastPanel = useCallback(() => {
-        setVisiblePanelCount(prevCount => (prevCount > 1 ? prevCount - 1 : prevCount));
-        scrollToPanel(visiblePanelCount - 2); // Adjust index to scroll to the correct panel
-    }, [visiblePanelCount]);
+        setVisiblePanelCount(prevCount => {
+            const newCount = prevCount > 1 ? prevCount - 1 : prevCount;
+            scrollToPanel(newCount - 1);
+            return newCount;
+        });
+    }, []);
 
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -202,9 +213,13 @@ const ComicBookBio = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            showNextPanel();
-        }, 3000); // 3 seconds
-
+            if (isMobileScreen()) {
+                showNextPanel(false);
+            } else {
+                showNextPanel(true);
+            }
+        }, 3000);
+    
         return () => clearTimeout(timer);
     }, [visiblePanelCount, showNextPanel]);
 
@@ -215,7 +230,7 @@ const ComicBookBio = () => {
                 return React.cloneElement(panel, { 
                     className: panelClassName, 
                     key: index, 
-                    ref: el => panelRefs.current[index] = el // Assign ref to the panel
+                    ref: el => panelRefs.current[index] = el
                 });
             })}
             <div className="arrow-buttons">
