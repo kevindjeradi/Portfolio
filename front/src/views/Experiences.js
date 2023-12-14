@@ -11,7 +11,9 @@ import {
 } from '@mui/lab';
 import { Paper, Typography, useMediaQuery } from '@mui/material';
 import VisibilitySensor from "react-visibility-sensor";
-import RoundedIcon from '@mui/icons-material/ArrowForwardIos';
+import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
+import LaptopMacIcon from '@mui/icons-material/LaptopMac';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import CustomAppBar from 'components/CustomAppBar';
 import chat from 'images/gifs/chat.gif';
 import livreur from 'images/gifs/livreur.gif';
@@ -23,6 +25,7 @@ const timelineData = [
   {
     id: "001",
     dateText: "11/2010 - Present",
+    icon: LaptopMacIcon,
     image: chat,
     title: "Chat Developer",
     company: "Chat Co.",
@@ -31,6 +34,7 @@ const timelineData = [
   {
     id: "002",
     dateText: "04/2009 - 11/2010",
+    icon: DirectionsBikeIcon,
     image: livreur,
     title: "Delivery Manager",
     company: "Delivery Inc.",
@@ -39,6 +43,7 @@ const timelineData = [
   {
     id: "003",
     dateText: "08/2008 - 11/2008",
+    icon: LaptopMacIcon,
     image: huh,
     title: "Research Analyst",
     company: "Research Ltd.",
@@ -47,6 +52,7 @@ const timelineData = [
   {
     id: "004",
     dateText: "08/2008 - 11/2008",
+    icon: LaptopMacIcon,
     image: dev,
     title: "Software Developer",
     company: "Dev Corp.",
@@ -55,6 +61,7 @@ const timelineData = [
   {
     id: "005",
     dateText: "08/2008 - 11/2008",
+    icon: SupportAgentIcon,
     image: chat,
     title: "Customer Support",
     company: "Support Solutions",
@@ -94,7 +101,7 @@ function Experiences() {
         {timelineData.map((item, index) => (
           <VisibilitySensor key={item.id} partialVisibility offset={{ bottom: 400 }}>
             {({ isVisible }) => (
-              <MuiTimelineItem style={{ ...TimelineItemStyle, opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s' }}>
+              <MuiTimelineItem style={{ ...TimelineItemStyle, marginBottom: '20px', opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s' }}>
                 {isMobile && (
                   <TimelineContent sx={{ textAlign: 'center' }}>
                     <Typography variant="body2" color="textSecondary" sx={{ fontWeight: "bold" }} className="customDateShape">
@@ -110,7 +117,7 @@ function Experiences() {
                 {!isMobile && (
                 <TimelineSeparator sx={{ margin: "0 15px 0 15px" }}>
                   <TimelineDot color="primary">
-                    <RoundedIcon />
+                  {item.icon && <item.icon />}
                   </TimelineDot>
                   {index < timelineData.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
