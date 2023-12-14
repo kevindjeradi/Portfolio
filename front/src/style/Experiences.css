@@ -6,3 +6,10 @@
   line-height: normal;
   font-size: 0.875rem;
 }
+
+@media (max-width: 600px) {
+  .customDateShape {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 51% 100%, 25% 75%, 0 75%);
+    padding: 20px 20px 30px 20px;
+  }
+}

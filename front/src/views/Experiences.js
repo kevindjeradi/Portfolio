@@ -9,7 +9,7 @@ import {
   TimelineDot,
   TimelineOppositeContent
 } from '@mui/lab';
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography, useMediaQuery } from '@mui/material';
 import VisibilitySensor from "react-visibility-sensor";
 import RoundedIcon from '@mui/icons-material/ArrowForwardIos';
 import CustomAppBar from 'components/CustomAppBar';
@@ -63,7 +63,7 @@ const timelineData = [
 ];
 
 const TimelineCard = ({ image, title, company, description }) => (
-  <Paper elevation={3} style={{ padding: '10px 20px 20px 20px', maxWidth: '350px', margin: '50px' }}>
+  <Paper elevation={3} style={{ padding: '5px 20px 20px 20px', maxWidth: '350px', margin: '10px' }}>
     <img src={image} alt={title} style={{ 
       display: 'block',
       width: '100%', 
@@ -80,28 +80,42 @@ const TimelineCard = ({ image, title, company, description }) => (
 );
 
 function Experiences() {
+  const isMobile = useMediaQuery('(max-width:600px)');
+
+  const TimelineItemStyle = isMobile ? {
+    flexDirection: 'column',
+    alignItems: 'center',
+  } : {};
+
   return (
     <div>
       <CustomAppBar />
-      <Timeline align="alternate">
+      <Timeline align={isMobile ? "right" : "alternate"}>
         {timelineData.map((item, index) => (
           <VisibilitySensor key={item.id} partialVisibility offset={{ bottom: 400 }}>
             {({ isVisible }) => (
-              <MuiTimelineItem style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s' }}>
-                <TimelineOppositeContent sx={{margin: "0 15px 0 15px"}}>
-                <TimelineOppositeContent sx={{ margin: "0 15px 0 15px" }}>
-                <Typography variant="body2" color="textSecondary" sx={{fontWeight: "bold"}} className="customDateShape">
-                  {item.dateText}
-                </Typography>
-                </TimelineOppositeContent>
-                </TimelineOppositeContent>
-                <TimelineSeparator sx={{margin: "0 15px 0 15px"}}>
-                  <TimelineDot color="primary" >
+              <MuiTimelineItem style={{ ...TimelineItemStyle, opacity: isVisible ? 1 : 0, transition: 'opacity 0.6s' }}>
+                {isMobile && (
+                  <TimelineContent sx={{ textAlign: 'center' }}>
+                    <Typography variant="body2" color="textSecondary" sx={{ fontWeight: "bold" }} className="customDateShape">
+                      {item.dateText}
+                    </Typography>
+                  </TimelineContent>
+                )}
+                {!isMobile && <TimelineOppositeContent sx={{ margin: "0 15px 0 15px" }}>
+                  <Typography variant="body2" color="textSecondary" sx={{ fontWeight: "bold" }} className="customDateShape">
+                    {item.dateText}
+                  </Typography>
+                </TimelineOppositeContent>}
+                {!isMobile && (
+                <TimelineSeparator sx={{ margin: "0 15px 0 15px" }}>
+                  <TimelineDot color="primary">
                     <RoundedIcon />
                   </TimelineDot>
                   {index < timelineData.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
-                <TimelineContent sx={{margin: "0 15px 0 15px"}}>
+                )}
+                <TimelineContent sx={{ margin: "0 15px 0 15px" }}>
                   <TimelineCard {...item} />
                 </TimelineContent>
               </MuiTimelineItem>
