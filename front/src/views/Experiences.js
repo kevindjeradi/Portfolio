@@ -74,15 +74,15 @@ const TimelineCard = ({ image, title, company, description }) => (
     <img src={image} alt={title} style={{ 
       display: 'block',
       width: '100%', 
-      height: '250px', 
       maxWidth: 'auto', 
+      maxHeight: '350px', 
       marginBottom: '20px',
       objectFit: 'contain',
       margin: 'auto'
     }} />
-    <Typography variant="h6">{title}</Typography>
-    <Typography variant="subtitle1">{company}</Typography>
-    <Typography variant="body2">{description}</Typography>
+    <Typography variant="h6" style={{ fontWeight: 'bold' }}>{title}</Typography>
+    <Typography variant="subtitle1" style={{ fontStyle: 'italic', textAlign: 'right' }}>{company}</Typography>
+    <Typography variant="body2" style={{ textAlign: 'justify', marginTop: '10px' }}>{description}</Typography>
   </Paper>
 );
 
