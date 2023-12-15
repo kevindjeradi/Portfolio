@@ -1,5 +1,4 @@
 // ProjectModal.js
-
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -29,8 +28,8 @@ const childElementMargin = {
 const contentContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
-    flex: 1, // take up all available space
-    position: 'relative', // set a context for the absolute positioning of the tags
+    flex: 1,
+    position: 'relative',
 };
 
 const socialAndTagsContainerStyle = {
@@ -78,23 +77,21 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    maxHeight: '90vh', // 90% of the viewport height
-    overflowY: 'auto', // Enable vertical scrolling
+    maxHeight: '90vh',
+    overflowY: 'auto',
     border: '2px solid #97B5C7',
     color: 'white',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // subtle shadow for depth
-    backdropFilter: 'blur(10px)', // this will give the frosted glass effect
-    backgroundColor: 'rgba(255, 255, 255, 0.1)', // semi-transparent white
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     pt: 2,
     px: 4,
     pb: 3,
 };
 
 function ProjectModal({ open, handleClose, item }) {
-    // Access the current theme
     const theme = useTheme();
 
-    // Determine screen size
     const isXs = useMediaQuery(theme.breakpoints.down('xs'));
     const isSm = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -102,7 +99,6 @@ function ProjectModal({ open, handleClose, item }) {
         return null;
     }
 
-    // Adjust modal width based on screen size
     const modalWidth = isXs ? '90%' : isSm ? '70%' : 500;
 
     return (
@@ -112,7 +108,7 @@ function ProjectModal({ open, handleClose, item }) {
                 onClose={handleClose}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
-                closeAfterTransition // This ensures the modal closes after the transition ends
+                closeAfterTransition
             >
                 <Fade in={open} timeout={300}>
                     <Box sx={{ ...style, width: modalWidth, display: 'flex', flexDirection: 'column' }}>

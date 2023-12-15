@@ -11,11 +11,10 @@ import { imagesList } from 'images/captures/imageIndex';
 
 export default function ProjectsList() {
   const [activeTags, setActiveTags] = React.useState([]);
-  const [numCols, setNumCols] = React.useState(3); // Initial number of columns
-  const [open, setOpen] = React.useState(false); // State for modal
+  const [numCols, setNumCols] = React.useState(3);
+  const [open, setOpen] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState(null);
 
-  // Remove blue accessibilty outline on modals
   useMouseFocus();
 
   const handleItemOpen = (item) => {
@@ -38,11 +37,8 @@ export default function ProjectsList() {
   };
 
   React.useEffect(() => {
-    // Add event listener to update columns on resize
     window.addEventListener('resize', updateCols);
-    // Initialize columns
     updateCols();
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('resize', updateCols);
     };

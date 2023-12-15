@@ -18,7 +18,7 @@ export default function CustomImageAvatar({borderRadius, size, imgPath}) {
         sx={{ 
           width: size, 
           height: size,
-          borderRadius: borderRadius  // Adjusting the borderRadius based on format prop
+          borderRadius: borderRadius
         }}
         src={imgPath}/>
     </div>

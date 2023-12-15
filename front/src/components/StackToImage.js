@@ -1,5 +1,4 @@
 // StackToImage.js
-
 import React from 'react';
 import cssImage from 'images/stack/css.png';
 import firebaseImage from 'images/stack/firebase.png';

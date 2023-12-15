@@ -1,5 +1,4 @@
 // ProjectDescription.js
-
 import React from 'react';
 
 function ProjectDescription({ item }) {
