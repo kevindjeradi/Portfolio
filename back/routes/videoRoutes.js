@@ -26,7 +26,6 @@ router.post('/upload', upload.single('video'), async (req, res, next) => {
             throw new Error('File not uploaded');
         }
 
-        // Generate thumbnail
         const thumbnailPath = `thumbnails/${req.file.filename}.jpg`;
         ffmpeg(req.file.path)
             .screenshots({
@@ -58,26 +57,20 @@ router.get('/videos', async (req, res) => {
     }
 });
 
-// Endpoint to delete a video
 router.delete('/delete/:videoId', async (req, res) => {
     try {
-        // Find the video by ID
         const video = await Video.findById(req.params.videoId);
 
-        // Check if the video exists
         if (!video) {
             return res.status(404).send('Video not found');
         }
 
-        // Delete video from uploads folder
         fs.unlinkSync(path.join(__dirname, '../uploads', video.videoPath));
 
-        // Delete associated thumbnail from thumbnails folder
         if (video.thumbnailPath) {
             fs.unlinkSync(path.join(__dirname, '../', video.thumbnailPath));
         }
 
-        // Delete video from the database
         await Video.findByIdAndDelete(req.params.videoId);
 
         res.send('Video and thumbnail deleted successfully');
@@ -93,19 +86,17 @@ const syncDatabaseWithUploads = async () => {
         const filesInUploads = fs.readdirSync(path.join(__dirname, '../uploads'));
         const videosInDB = await Video.find();
 
-        // Delete entries in DB that don't have a corresponding file in uploads
         for (let video of videosInDB) {
             if (!filesInUploads.includes(video.videoPath)) {
                 await Video.findOneAndDelete({ videoPath: video.videoPath });
             }
         }
 
-        // Add files in uploads to DB if they don't exist in DB
         for (let file of filesInUploads) {
             const videoInDB = videosInDB.find(video => video.videoPath === file);
             if (!videoInDB) {
                 const newVideo = new Video({
-                    title: file, // or extract title from file name
+                    title: file,
                     videoPath: file
                 });
                 await newVideo.save();
@@ -116,7 +107,6 @@ const syncDatabaseWithUploads = async () => {
     }
 };
 
-// Call the function when the server starts or before fetching the list of videos
 syncDatabaseWithUploads();
 
 module.exports = router;
