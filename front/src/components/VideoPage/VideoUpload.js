@@ -54,7 +54,7 @@ function VideoUpload({ onUploadSuccess }) {
                 setNotification(response.data.message);
                 setTimeout(() => {
                     onUploadSuccess();
-                }, 200);  // delai de 0.20 secondes pour bien afficher le thumbnail
+                }, 200);
             } else {
                 setNotification(response.data.error);
             }
@@ -70,8 +70,8 @@ function VideoUpload({ onUploadSuccess }) {
         .finally(() => {
             setLoading(false);
             setUploadProgress(0);
-            fileInput.current.value = null;  // Reset the file input
-            setFilename('Choisir un fichier');      // Reset the filename display
+            fileInput.current.value = null;
+            setFilename('Choisir un fichier');
         });
     };
 

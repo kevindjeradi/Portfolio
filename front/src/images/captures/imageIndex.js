@@ -1,5 +1,4 @@
 // images/captures/index.js
-
 import portfolioHome from 'images/captures/portfolio/Portfolio.png';
 
 import budgetManagerConnexion from 'images/captures/budget-manager/connexion.png';

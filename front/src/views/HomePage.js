@@ -37,12 +37,12 @@ function HomePage() {
                     setDisplayedText(fullText.substring(0, index));
                     index++;
                 } else {
-                    clearInterval(intervalId); // Clear the interval if the end of the string is reached
+                    clearInterval(intervalId);
                 }
-            }, 50); // Adjust speed as needed
-            return () => clearInterval(intervalId); // Cleanup interval on component unmount
+            }, 50);
+            return () => clearInterval(intervalId);
         } else {
-            setDisplayedText(''); // Reset the displayed text when the text is not supposed to be visible
+            setDisplayedText('');
         }
     }, [isGifPlayed]);
 
@@ -84,7 +84,7 @@ function HomePage() {
     }, [playHadoken]);
 
     useEffect(() => {
-        const Duration = 1500; // Time until punch lands
+        const Duration = 1500;
         const punchTimerId = setTimeout(() => {
             setPunched(true);
         }, Duration);

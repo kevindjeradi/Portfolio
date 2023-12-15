@@ -7,14 +7,14 @@ import 'style/VideoPage.css';
 
 function VideoPage() {
     const [selectedVideoPath, setSelectedVideoPath] = useState(null);
-    const [refreshVideos, setRefreshVideos] = useState(false); // New state to trigger video list refresh
+    const [refreshVideos, setRefreshVideos] = useState(false);
 
     const handleVideoSelect = (videoPath) => {
         setSelectedVideoPath(videoPath);
     };
 
     const handleUploadSuccess = () => {
-        setRefreshVideos(!refreshVideos); // Toggle the state to trigger a re-fetch in VideoList
+        setRefreshVideos(!refreshVideos);
     };
 
     return (

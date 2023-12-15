@@ -9,8 +9,7 @@ import { useEffect } from 'react';
 function Projects() {
 
   useEffect(() => {
-    document.body.style.overflow = 'auto';  // enable scrolling when component mounts
-
+    document.body.style.overflow = 'auto';
     return () => {}
 }, []);
 
