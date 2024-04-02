@@ -1,6 +1,32 @@
 // images/captures/index.js
 import portfolioHome from 'images/captures/portfolio/Portfolio.png';
 
+import ksportsHome from 'images/captures/ksports/accueil.png';
+import ksportsHomeWhite from 'images/captures/ksports/accueil-white.png';
+import ksportsExerciceDetail from 'images/captures/ksports/exoDetail.png';
+import ksportsExerciceDetailWhite from 'images/captures/ksports/exoDetail-white.png';
+import ksportsExerciceStats from 'images/captures/ksports/exoStats.png';
+import ksportsExerciceStatsWhite from 'images/captures/ksports/exoStats-white.png';
+import ksportsMuscles from 'images/captures/ksports/muscles.png';
+import ksportsMusclesWhite from 'images/captures/ksports/muscles-white.png';
+import ksportsProfile from 'images/captures/ksports/profile.png';
+import ksportsProfileWhite from 'images/captures/ksports/profile-white.png';
+import ksportsStats from 'images/captures/ksports/stats.png';
+import ksportsStatsWhite from 'images/captures/ksports/stats-white.png';
+import ksportsTrainingList from 'images/captures/ksports/trainingList.png';
+import ksportsTrainingListWhite from 'images/captures/ksports/trainingList-white.png';
+import ksportsTrainingOverview from 'images/captures/ksports/trainingOverview.png';
+import ksportsTrainingOverviewWhite from 'images/captures/ksports/trainingOverview-white.png';
+
+import kreaderHome from 'images/captures/kreader/accueil.png';
+import kreaderHome2 from 'images/captures/kreader/accueil2.png';
+import kreaderBibliotheque from 'images/captures/kreader/bibliotheque.png';
+import kreaderConnexion from 'images/captures/kreader/connexion.png';
+import kreaderNovelDetail from 'images/captures/kreader/novelDetail.png';
+import kreaderProfile from 'images/captures/kreader/profile.png';
+import kreaderProfile2 from 'images/captures/kreader/profile2.png';
+import kreaderSearch from 'images/captures/kreader/search.png';
+
 import budgetManagerConnexion from 'images/captures/budget-manager/connexion.png';
 import budgetManagerDepenses from 'images/captures/budget-manager/depenses.png';
 import budgetManagerEntrees from 'images/captures/budget-manager/entrees.png';
@@ -42,7 +68,37 @@ import songerRegister from 'images/captures/songer/register.png';
 import songerStyles from 'images/captures/songer/styles.png';
 
 export const imagesList = {
-    connectMobile : [
+    ksports: [
+        ksportsHome,
+        ksportsHomeWhite,
+        ksportsExerciceDetail,
+        ksportsExerciceDetailWhite,
+        ksportsExerciceStats,
+        ksportsExerciceStatsWhite,
+        ksportsMuscles,
+        ksportsMusclesWhite,
+        ksportsProfile,
+        ksportsProfileWhite,
+        ksportsStats,
+        ksportsStatsWhite,
+        ksportsTrainingList,
+        ksportsTrainingListWhite,
+        ksportsTrainingOverview,
+        ksportsTrainingOverviewWhite
+    ],
+
+    kreader: [
+        kreaderHome,
+        kreaderHome2,
+        kreaderBibliotheque,
+        kreaderConnexion,
+        kreaderNovelDetail,
+        kreaderProfile,
+        kreaderProfile2,
+        kreaderSearch
+    ],
+
+    connectMobile: [
         connectHome,
         connectPublicHome,
         connectContact,
@@ -54,7 +110,7 @@ export const imagesList = {
         connectWikiDetail,
     ],
 
-    mobileShop : [
+    mobileShop: [
         mobileShopHome,
         mobileShopLogin,
         mobileShopRegister,
@@ -64,7 +120,7 @@ export const imagesList = {
         mobileShopCards2,
     ],
 
-    redditech : [
+    redditech: [
         redditechHome,
         redditechLanding,
         redditechLogin,
@@ -72,7 +128,7 @@ export const imagesList = {
         redditechSettings,
     ],
 
-    songer : [
+    songer: [
         songerPlayer,
         songerLanding,
         songerLogin,
@@ -83,7 +139,7 @@ export const imagesList = {
         songerStyles
     ],
 
-    budgetManager : [
+    budgetManager: [
         budgetManagerConnexion,
         budgetManagerDepenses,
         budgetManagerEntrees,
@@ -92,7 +148,7 @@ export const imagesList = {
         budgetManagerResume
     ],
 
-    portfolio : [
+    portfolio: [
         portfolioHome
     ],
 };

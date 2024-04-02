@@ -8,12 +8,39 @@ import useMouseFocus from 'utils/UseMouseFocus';
 import 'style/ProjectList.css';
 import ProjectModal from 'components/Projects/ProjectModal';
 import { imagesList } from 'images/captures/imageIndex';
+import ksportsVideo from 'videos/Ksports-white.mp4';
+import kreaderVideo from 'videos/Kreader.mp4';
 
 export default function ProjectsList() {
   const [activeTags, setActiveTags] = React.useState([]);
   const [numCols, setNumCols] = React.useState(3);
   const [open, setOpen] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState(null);
+  const [featuredProjects] = React.useState([
+    {
+      imgs: imagesList.ksports,
+      title: 'Ksports',
+      videoUrl: ksportsVideo,
+      tags: ['Personnel', 'Front', 'Back', 'Mobile'],
+      stack: ['Flutter', 'NodeJs', 'Express', 'MongoDb'],
+      github: 'https://github.com/kevindjeradi/Ksport',
+    },
+    {
+      imgs: imagesList.kreader,
+      title: 'Kreader',
+      videoUrl: kreaderVideo,
+      tags: ['Personnel', 'Front', 'Back', 'Mobile'],
+      stack: ['Flutter', 'NodeJs', 'Express', 'MongoDb'],
+      github: 'https://github.com/kevindjeradi/MobileReader',
+    },
+  ]);
+
+  const [featuredProjectIndex, setFeaturedProjectIndex] = React.useState(0);
+  const videoRef = React.useRef(null);
+
+  const handleVideoEnd = () => {
+    setFeaturedProjectIndex((prevIndex) => (prevIndex + 1) % featuredProjects.length);
+  };
 
   useMouseFocus();
 
@@ -114,6 +141,20 @@ export default function ProjectsList() {
         >
           Mobile
         </Button>
+      </div>
+
+      <div className="featured-project" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0' }} onClick={() => handleItemOpen(featuredProjects[featuredProjectIndex])}>
+        <video
+          ref={videoRef}
+          src={featuredProjects[featuredProjectIndex].videoUrl}
+          autoPlay
+          muted
+          Loop
+          playsInline
+          onEnded={handleVideoEnd}
+        >
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <ImageList cols={numCols} gap={36} style={{width:'95vw'}}>
