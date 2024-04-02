@@ -408,13 +408,19 @@ const BioPage = () => {
                             (
                                 <React.Fragment>
                                     <Typography variant="body1" sx={{ marginBottom: '15px' }}>
-                                        Passionné de technologie et de développement, j'ai repris mes études après une longue pause. Cette expérience a renforcé ma persévérance et m'a façonné en tant que professionnel.
+                                    🚀 Je suis un développeur passionné par la technologie, avec une petite obsession pour la lecture, en particulier les light novels fantastiques et les mangas. Après une pause de 7 ans due à des soucis de santé de proches, j'ai décidé de reprendre mes études il y a 2 ans pour devenir développeur.
                                     </Typography>
                                     <Typography variant="body1"sx={{ marginBottom: '15px' }}>
-                                        En dehors du codage, je suis un fervent lecteur de light novels fantastiques et de mangas, et j'aime me détendre en regardant des séries, films ou en suivant des streams sur Twitch. Le sport joue également un rôle clé dans ma vie, m'aidant à décompresser et à gérer le stress.
+                                    💪 Mon parcours m'a appris la valeur de la persévérance. J'ai surmonté de nombreux défis personnels qui ont façonnés l'homme que je suis devenu.
+                                    </Typography>
+                                    <Typography variant="body1"sx={{ marginBottom: '15px' }}>
+                                    📖 Quand je ne suis pas en train de coder, vous me trouverez en train de bouquiner, de mater des séries et films ou de suivre des streams sur Twitch.
+                                    </Typography>
+                                    <Typography variant="body1"sx={{ marginBottom: '15px' }}>
+                                    🏋️ En dehors de ça, je suis un amateur de sport, une façon pour moi de décompresser et d'évacuer le stress cumulé.
                                     </Typography>
                                     <Typography variant="body1">
-                                        Ouvert à de nouvelles opportunités dans le développement, je suis toujours disponible pour discuter de projets passionnants ou échanger sur nos lectures préférées.
+                                    🌐 Je suis ouvert aux nouvelles opportunités dans le domaine du développement. N'hésitez pas à me contacter pour discuter de projets, d'offres d'emploi ou d'échanger des recommandations de lecture.
                                     </Typography>
                                 </React.Fragment>
                             ) : 
