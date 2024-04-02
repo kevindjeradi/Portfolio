@@ -26,9 +26,20 @@ h5 {
   color: white !important;
 }
 
+.featured-project video {
+  width: 60%;
+  max-height: 1200px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
   .imageListItem {
-    width: 80% !important;  /* or any percentage/size you prefer */
+    width: 80% !important;
     margin: 0 auto !important;
   }
+
+  .featured-project video {
+    width: 100%;
+}
 }

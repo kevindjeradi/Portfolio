@@ -1,15 +1,90 @@
-.customDateShape {
-  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-  background-color: #ed8888;
-  padding: 20px 20px 20px 10px;
-  display: inline-block;
-  line-height: normal;
-  font-size: 0.875rem;
+/* Experiences.css */
+.timelineCard {
+  width: 500px; /* Fixed width */
+  height: auto; /* Height to fit content */
+  margin-bottom: 20px;
+  transition: opacity 0.6s, transform 0.6s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2); /* Shadow similar to the image */
+  border-radius: 8px; /* Rounded corners like the image */
+  overflow: hidden; /* Hide overflow */
+  background-color: #fff; /* White background */
+}
+
+.timelineCard.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardTitleBar {
+  background-color: #f5f5f5; /* Light grey background for the title bar */
+  padding: 16px; /* Padding around title */
+  display: flex;
+  justify-content: space-between; /* Space between title and date */
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0; /* Border line similar to the image */
+}
+
+.cardSubHeader {
+  display: flex;
+  justify-content: space-between; /* Align the company and date on opposite ends */
+  align-items: center; /* Center items vertically */
+  padding: 16px; /* Padding around the subheader */
+  background-color: #f9f9f9; /* Slightly different background for the section */
+  border-bottom: 1px solid #e0e0e0; /* Border line similar to the image */
+}
+
+.cardTitle {
+  font-weight: bold;
+}
+
+.cardCompany {
+  flex-grow: 1; /* Allow the company name to take up available space */
+  margin-right: 8px; /* Margin between company name and date */
+  font-style: italic;
+  color: #666; /* Dark grey color */
+}
+
+.cardDate {
+  background-color: #ed8888; /* Red background for the date */
+  border-radius: 16px; /* Rounded corners for the date */
+  padding: 4px 16px; /* Padding inside the date container */
+  flex-shrink: 0; /* Prevent the date from shrinking */
+}
+
+.cardDescription {
+  padding: 16px; /* Padding around description */
+  text-align: justify;
+}
+
+.cardTechnologies {
+  padding: 16px; /* Padding around technologies */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.technologyChip {
+  background-color: #e0e0e0; /* Grey background for chips */
+  border-radius: 16px; /* Rounded corners */
+  padding: 8px 16px; /* Padding inside chips */
+  font-size: 0.875rem; /* Font size for chips */
+  margin-bottom: 8px; /* Margin below each chip */
+}
+
+@media (max-width: 768px) {
+  .timelineCard {
+    width: 90%; /* Adjust width for tablet devices */
+  }
 }
 
 @media (max-width: 600px) {
-  .customDateShape {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 51% 100%, 25% 75%, 0 75%);
-    padding: 20px 20px 30px 20px;
+  .timelineCard {
+    width: 90%; /* Full width on mobile with some margin */
+    margin-bottom: 20px;
+    opacity: 1; /* No need for visibility animation on mobile */
+  }
+
+  .cardHeader, .cardDescription, .cardTechnologies {
+    padding: 0 10px;
   }
 }
