@@ -26,6 +26,10 @@ h5 {
   color: white !important;
 }
 
+div.featured-project > video {
+  max-height: 600px;
+}
+
 .featured-project video {
   width: 60%;
   max-height: 600px;
