@@ -149,7 +149,7 @@ export default function ProjectsList() {
           src={featuredProjects[featuredProjectIndex].videoUrl}
           autoPlay
           muted
-          Loop
+          loop
           playsInline
           onEnded={handleVideoEnd}
         >
