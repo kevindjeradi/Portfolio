@@ -1,4 +1,5 @@
 import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageList from '@mui/material/ImageList';
 import Button from '@mui/material/Button';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -37,6 +38,35 @@ export default function ProjectsList() {
 
   const [featuredProjectIndex, setFeaturedProjectIndex] = React.useState(0);
   const videoRef = React.useRef(null);
+  const [videoStyle, setVideoStyle] = useState({
+    width: '60%',
+    maxHeight: '600px',
+    borderRadius: '10px'
+  });
+
+  useEffect(() => {
+    const updateVideoStyle = () => {
+      if (window.innerWidth < 768) {
+        setVideoStyle({
+          width: '100%',
+          borderRadius: '10px'
+        });
+      } else {
+        setVideoStyle({
+          width: '60%',
+          maxHeight: '600px',
+          borderRadius: '10px'
+        });
+      }
+    };
+
+    window.addEventListener('resize', updateVideoStyle);
+    updateVideoStyle();
+
+    return () => {
+      window.removeEventListener('resize', updateVideoStyle);
+    };
+  }, []);
 
   const handleVideoEnd = () => {
     setFeaturedProjectIndex((prevIndex) => (prevIndex + 1) % featuredProjects.length);
@@ -62,15 +92,6 @@ export default function ProjectsList() {
       setNumCols(1);
     }
   };
-
-  React.useEffect(() => {
-    console.log("video ref ->", videoRef.current); // This will log the video DOM element to check if it's correctly captured
-  }, [videoRef]);
-  
-  React.useEffect(() => {
-    console.log(`Video Size: ${videoRef.current.offsetWidth}x${videoRef.current.offsetHeight}`);
-  }, [numCols]); // You might need to adjust the dependency array based on what could affect the size.
-  
 
   React.useEffect(() => {
     window.addEventListener('resize', updateCols);
@@ -161,6 +182,7 @@ export default function ProjectsList() {
           Loop
           playsInline
           onEnded={handleVideoEnd}
+          style={videoStyle}
         >
           Your browser does not support the video tag.
         </video>
