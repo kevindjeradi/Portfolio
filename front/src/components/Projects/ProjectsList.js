@@ -64,7 +64,7 @@ export default function ProjectsList() {
   };
 
   React.useEffect(() => {
-    console.log(videoRef.current); // This will log the video DOM element to check if it's correctly captured
+    console.log("video ref ->", videoRef.current); // This will log the video DOM element to check if it's correctly captured
   }, [videoRef]);  
 
   React.useEffect(() => {
