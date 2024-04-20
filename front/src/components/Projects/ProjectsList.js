@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ImageList from '@mui/material/ImageList';
 import Button from '@mui/material/Button';
 import ImageListItem from '@mui/material/ImageListItem';
