@@ -27,8 +27,8 @@ h5 {
 }
 
 .featured-project video {
-  width: 60%;
-  max-height: 600px;
+  width: 60% !important;
+  max-height: 600px !important;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -40,6 +40,6 @@ h5 {
   }
 
   .featured-project video {
-    width: 100%;
+    width: 100% !important;
 }
 }

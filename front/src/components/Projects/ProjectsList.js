@@ -143,7 +143,7 @@ export default function ProjectsList() {
         </Button>
       </div>
 
-      {/* <div className="featured-project" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0' }} onClick={() => handleItemOpen(featuredProjects[featuredProjectIndex])}>
+      <div className="featured-project" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0' }} onClick={() => handleItemOpen(featuredProjects[featuredProjectIndex])}>
         <video
           ref={videoRef}
           src={featuredProjects[featuredProjectIndex].videoUrl}
@@ -155,7 +155,7 @@ export default function ProjectsList() {
         >
           Your browser does not support the video tag.
         </video>
-      </div> */}
+      </div>
 
       <ImageList cols={numCols} gap={36} style={{width:'95vw'}}>
         {filteredItems.map((item) => (
