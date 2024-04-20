@@ -65,7 +65,12 @@ export default function ProjectsList() {
 
   React.useEffect(() => {
     console.log("video ref ->", videoRef.current); // This will log the video DOM element to check if it's correctly captured
-  }, [videoRef]);  
+  }, [videoRef]);
+  
+  React.useEffect(() => {
+    console.log(`Video Size: ${videoRef.current.offsetWidth}x${videoRef.current.offsetHeight}`);
+  }, [numCols]); // You might need to adjust the dependency array based on what could affect the size.
+  
 
   React.useEffect(() => {
     window.addEventListener('resize', updateCols);
