@@ -5,7 +5,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { v4 as uuidv4 } from 'uuid';
 import useMouseFocus from 'utils/UseMouseFocus';
-import 'style/ProjectList.css';
+import '../../style/ProjectList.css';
 import ProjectModal from 'components/Projects/ProjectModal';
 import { imagesList } from 'images/captures/imageIndex';
 import ksportsVideo from 'videos/Ksports-white.mp4';
