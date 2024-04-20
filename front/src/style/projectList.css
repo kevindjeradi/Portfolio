@@ -28,7 +28,7 @@ h5 {
 
 .featured-project video {
   width: 60%;
-  max-height: 1200px;
+  max-height: 600px;
   border-radius: 10px;
   cursor: pointer;
 }
