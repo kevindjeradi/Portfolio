@@ -32,7 +32,7 @@ div.featured-project > video {
 
 .featured-project video {
   width: 60%;
-  max-height: 600px;
+  max-height: 600px !important;
   border-radius: 10px;
   cursor: pointer;
 }
