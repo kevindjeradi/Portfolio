@@ -5,7 +5,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { v4 as uuidv4 } from 'uuid';
 import useMouseFocus from 'utils/UseMouseFocus';
-import '../../style/ProjectList.css';
+import 'style/ProjectList.css';
 import ProjectModal from 'components/Projects/ProjectModal';
 import { imagesList } from 'images/captures/imageIndex';
 import ksportsVideo from 'videos/Ksports-white.mp4';
@@ -143,19 +143,19 @@ export default function ProjectsList() {
         </Button>
       </div>
 
-      <div className="featured-project" style={{maxHeight: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0' }} onClick={() => handleItemOpen(featuredProjects[featuredProjectIndex])}>
+      {/* <div className="featured-project" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0' }} onClick={() => handleItemOpen(featuredProjects[featuredProjectIndex])}>
         <video
           ref={videoRef}
           src={featuredProjects[featuredProjectIndex].videoUrl}
           autoPlay
           muted
-          loop
+          Loop
           playsInline
           onEnded={handleVideoEnd}
         >
           Your browser does not support the video tag.
         </video>
-      </div>
+      </div> */}
 
       <ImageList cols={numCols} gap={36} style={{width:'95vw'}}>
         {filteredItems.map((item) => (
