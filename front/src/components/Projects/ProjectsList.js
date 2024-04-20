@@ -143,7 +143,7 @@ export default function ProjectsList() {
         </Button>
       </div>
 
-      <div className="featured-project" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0' }} onClick={() => handleItemOpen(featuredProjects[featuredProjectIndex])}>
+      <div className="featured-project" style={{maxHeight: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0' }} onClick={() => handleItemOpen(featuredProjects[featuredProjectIndex])}>
         <video
           ref={videoRef}
           src={featuredProjects[featuredProjectIndex].videoUrl}

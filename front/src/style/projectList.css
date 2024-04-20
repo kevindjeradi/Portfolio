@@ -26,20 +26,9 @@ h5 {
   color: white !important;
 }
 
-div.featured-project > video {
-  max-height: 600px;
-}
-
-.featured-project {
-  width: 60%;
-  max-height: 600px !important;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
 .featured-project video {
   width: 60%;
-  max-height: 600px !important;
+  max-height: 600px;
   border-radius: 10px;
   cursor: pointer;
 }
