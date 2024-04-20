@@ -3,6 +3,7 @@ import ProjectsList from 'components/Projects/ProjectsList';
 import CustomAppBar from 'components/CustomAppBar';
 import avatar from 'images/photo.jpg'
 import 'style/Projects.css';
+import 'style/ProjectList.css';
 
 import { useEffect } from 'react';
 
