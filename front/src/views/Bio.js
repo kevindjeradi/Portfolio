@@ -294,7 +294,7 @@ const BioPage = () => {
                     style={{ width: matches ? '200px' : '150px', height: matches ? '200px' : '150px', margin: 'auto', border: `4px solid ${blueGrey[300]}` }}
                 />
                 <Typography variant="h3" style={{ marginTop: '20px', color: blueGrey[900] }}>Kevin Hamza Djeradi</Typography>
-                <Typography variant="subtitle1" style={{ color: blueGrey[700] }}>Développeur Fullstack</Typography>
+                <Typography variant="subtitle1" style={{ color: blueGrey[700] }}>Développeur Mobile Flutter et web Fullstack</Typography>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Link href="https://github.com/kevindjeradi" target="_blank" style={{ textDecoration: 'none' }}>

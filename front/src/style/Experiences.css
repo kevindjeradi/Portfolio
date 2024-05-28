@@ -1,6 +1,6 @@
 /* Experiences.css */
 .timelineCard {
-  width: 500px; /* Fixed width */
+  width: 800px; /* Fixed width */
   height: auto; /* Height to fit content */
   margin-bottom: 20px;
   transition: opacity 0.6s, transform 0.6s;

@@ -160,7 +160,7 @@ const ComicBookBio = () => {
                 <img src={avatar_working} alt="Description" style={{ width: '190px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
             </div>,
             <div className="panel">
-                <p className="text topCenter">Aujourd'hui, en 2023, Kevin est en 5ème année et compte bien valider son année</p>
+                <p className="text topCenter">Aujourd'hui, en 2024, Kevin est en 5ème année et compte bien valider son année</p>
                 <p className="text bottomRight">FIN</p>
                 <img src={avatar_working2} alt="Description" style={{ width: '150px', position: 'absolute', top: '68%', left: '50%', transform: 'translate(-50%, -50%)' }} />
             </div>,

@@ -12,12 +12,12 @@ function CustomAppBar() {
                         <img style={{width: '30px', height: '30px', mixBlendMode: 'multiply'}} src={accueil} alt="Accueil" />
                     </IconButton>
                 </Link>
-                <Typography variant="h6" style={{ flexGrow: 1 }}></Typography>
+                {/* <Typography variant="h6" style={{ flexGrow: 1 }}></Typography>
                 <Link to="/Contact" style={{ textDecoration: 'none', color: '#B1B1B1' }}>
                     <Button className="hoverable-btn" color="inherit" style={{ color: '#B1B1B1', textTransform: 'none' }}>
                         Contact
                     </Button>
-                </Link>
+                </Link> */}
             </Toolbar>
         </AppBar>
     );
